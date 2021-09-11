@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Trans } from 'react-i18next'
 
 const StyledHeader = styled.header`
   grid-area: header;
@@ -27,7 +28,7 @@ const Header = () => (
   <StyledHeader>
     <StyledLogo>Kiltau</StyledLogo>
 
-    <StyledSubtitle>Fachinformatiker für Anwendungsentwicklung</StyledSubtitle>
+    <StyledSubtitle><Trans>Computer Science Expert Subject Area: Software Development</Trans></StyledSubtitle>
   </StyledHeader>
 )
 

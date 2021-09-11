@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: 'Kiltau',
-    description: '',
+    description: "I'm a developer and this is my website.",
     author: 'Dmitrij Kiltau',
     siteURL: 'https://kiltau.com',
     menuItems: [
       {
-        name: 'Startseite',
+        name: 'Homepage',
         slug: '',
       },
       {
@@ -18,8 +18,8 @@ module.exports = {
         slug: 'tools',
       },
       {
-        name: 'Minispiele',
-        slug: 'minispiele',
+        name: 'Minigames',
+        slug: 'minigames',
       },
     ],
     social: {
@@ -57,6 +57,14 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/,
+        },
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -66,13 +74,40 @@ module.exports = {
         path: './src/images/',
       },
     },
+    'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        rule: {
-          include: /icons/,
-        },
+        name: 'locale',
+        path: './src/locales/',
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        localeJsonSourceName: 'locale',
+        languages: ['en', 'de'],
+        defaultLanguage: 'en',
+        siteUrl: 'https://kiltau.com/',
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false 
+          },
+          keySeparator: false,
+          nsSeparator: false
+        },
+        pages: [
+          {
+            matchPath: '/:lang?/blog/:uid',
+            getLanguageFromPath: true,
+            excludeLanguages: ['es']
+          },
+          {
+            matchPath: '/preview',
+            languages: ['en']
+          }
+        ]
+      }
+    }
   ],
 }

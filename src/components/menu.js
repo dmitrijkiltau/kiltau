@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import useSiteMetadata from '../hooks/use-site-metadata'
+import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 
 const StyledMenu = styled.nav`
   grid-area: menu;
@@ -36,18 +37,23 @@ const StyledLink = styled(Link)`
 
 const Menu = ({ slug }) => {
   const { menuItems } = useSiteMetadata()
+  const { language } = useI18next()
 
   return (
     <StyledMenu>
-      {menuItems.map((item) => (
+      {menuItems.map((item) => {
+        const prefix = language !== 'en' ? `/${language}` : ''
+        const path = `${prefix}/${item.slug}`
+
+        return (
         <StyledLink
-          to={`/${item.slug}`}
-          className={`/${item.slug}` === slug ? 'active' : null}
+          to={path}
+          className={path.replace(/\//gi, '') === slug.replace(/\//gi, '') ? 'active' : null}
           key={item.slug}
         >
-          {item.name}
+          <Trans>{item.name}</Trans>
         </StyledLink>
-      ))}
+      )})}
     </StyledMenu>
   )
 }

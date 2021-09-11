@@ -29,11 +29,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    font-size: 1.125rem;
+    font-size: 1.125em;
     color: var(--color-secondary-80);
   }
 
   a {
+    text-decoration: none;
     color: var(--color-secondary-80);
     transition: all .2s ease-in-out;
 

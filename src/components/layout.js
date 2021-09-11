@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import { Helmet } from 'react-helmet'
 import GlobalStyle from './global-style'
@@ -45,18 +46,19 @@ const StyledMain = styled.main`
 `
 
 const Layout = ({ pageTitle, slug, image, children }) => {
+  const { t } = useTranslation()
   const { title, description, author, siteURL, social } = useSiteMetadata()
 
   return (
     <>
       <Helmet>
         <title>{`${title} | ${pageTitle}`}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={t("I'm a developer and this is my website.")} />
         <meta name="author" content={author} />
         <meta name="copyright" content={author} />
 
         <link rel="canonical" href={`${siteURL}${slug}`} />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={social.twitter.name} />
         <meta name="twitter:title" content={title} />
