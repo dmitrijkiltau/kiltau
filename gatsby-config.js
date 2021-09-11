@@ -1,35 +1,78 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Kiltau",
+    title: 'Kiltau',
+    description: '',
+    author: 'Dmitrij Kiltau',
+    siteURL: 'https://kiltau.com',
+    menuItems: [
+      {
+        name: 'Startseite',
+        slug: '',
+      },
+      {
+        name: 'Skills',
+        slug: 'skills',
+      },
+      {
+        name: 'Tools',
+        slug: 'tools',
+      },
+      {
+        name: 'Minispiele',
+        slug: 'minispiele',
+      },
+    ],
+    social: {
+      twitter: {
+        page: 'Twitter',
+        name: 'einfachdima',
+        url: 'https://twitter.com/'
+      },
+    },
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-image",
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-image',
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "UA-43582589-10",
+        trackingId: 'UA-43582589-10',
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
-        icon: "src/images/icon.png",
+        fonts: [
+          'Work Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i',
+        ],
+        display: 'swap',
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "images",
-        path: "./src/images/",
+        icon: 'src/images/icon.png',
       },
-      __key: "images",
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /icons/,
+        },
+      },
     },
   ],
-};
+}
