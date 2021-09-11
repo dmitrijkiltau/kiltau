@@ -9,6 +9,7 @@ const StyledCopyright = styled.div`
   grid-area: copyright;
   display: flex;
   justify-content: space-between;
+  font-weight: 500;
   box-shadow: 0 -2px 0 var(--color-secondary-96);
 `
 
@@ -45,10 +46,7 @@ const StyledPlayStore = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    svg {
-      height: 1.5rem;
-    }
+    font-weight: 500;
   }
 `
 

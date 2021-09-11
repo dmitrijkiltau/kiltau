@@ -44,8 +44,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   svg {
-    height: 1rem;
-    margin-bottom: -0.125rem;
+    height: 1em;
+    margin-bottom: -0.125em;
   }
 `
 

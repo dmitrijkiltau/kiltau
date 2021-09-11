@@ -28,7 +28,9 @@ const Header = () => (
   <StyledHeader>
     <StyledLogo>Kiltau</StyledLogo>
 
-    <StyledSubtitle><Trans>Computer Science Expert Subject Area: Software Development</Trans></StyledSubtitle>
+    <StyledSubtitle>
+      <Trans>IT specialist for application development</Trans>
+    </StyledSubtitle>
   </StyledHeader>
 )
 
