@@ -4,8 +4,12 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --font-size-default: 16px;
 
-    @media (max-width: 120rem) {
-      --font-size-default: 1vw;
+    @media (max-width: 86rem) {
+      --font-size-default: clamp(1rem, 1.5vw, 2rem);
+    }
+
+    @media (max-width: 36rem) {
+      --font-size-default: clamp(1rem, 1.5vw, 2rem);
     }
 
     --color-primary: hsl(0deg 0% 0%);
@@ -26,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: "Work Sans", Arial, Helvetica, sans-serif;
     font-size: var(--font-size-default);
+    background-color: var(--color-primary);
   }
 
   p {

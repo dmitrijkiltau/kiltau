@@ -12,12 +12,21 @@ const StyledMenu = styled.nav`
 `
 
 const StyledLink = styled(Link)`
-  width: calc(100% / 4 - 2rem);
-  margin: 0 2vw;
-  padding-bottom: 1vw;
+  width: calc(100% / 4);
+  margin: 0 2rem;
+  padding-bottom: 1rem;
   font-size: 1.5em;
   color: var(--color-secondary-80);
   box-shadow: 0 2px var(--color-secondary-50);
+
+  @media (max-width: 61rem) {
+    margin: 0 1rem;
+    font-size: 1.25em;
+  }
+
+  @media (max-width: 61rem) {
+    font-size: 1em;
+  }
 
   &:hover,
   &:focus,

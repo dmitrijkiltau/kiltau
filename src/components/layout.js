@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import useSiteMetadata from '../hooks/use-site-metadata'
@@ -14,30 +14,53 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary);
+
+  &.scrollable {
+    height: auto;
+    align-items: flex-start;
+  }
 `
 
 const Grid = styled.div`
   width: 112rem;
-  height: 67.5vw;
+  height: 67.5rem;
   display: grid;
   align-content: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows:
-    calc(11.0625vw - 2rem) calc(10.25vw - 2rem) calc(35.375vw - 2rem)
-    calc(11vw - 2rem);
+  grid-template-rows: auto auto minmax(36rem, auto) auto;
   grid-template-areas:
     'header header header header'
     'menu menu menu menu'
     'main main main main'
     'copyright copyright play-store paypal';
-  grid-gap: 0 4vw;
+  grid-gap: 4rem;
   margin: 0 4rem;
 
-  @media (min-width: 120rem) {
-    max-height: 67.5rem;
-    grid-template-rows: 11.0625rem 10.25rem 35.375rem 11rem;
-    grid-gap: 0 4rem;
+  @media (max-width: 81rem) {
+    grid-template-rows: auto auto minmax(24rem, auto) auto;
+  }
+
+  @media (max-width: 61rem) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto minmax(18rem, auto) auto auto;
+    grid-template-areas:
+      'header header'
+      'menu menu'
+      'main main'
+      'play-store paypal'
+      'copyright copyright';
+  }
+
+  @media (max-width: 36rem) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto minmax(12rem, auto) auto auto auto;
+    grid-template-areas:
+      'header'
+      'menu'
+      'main'
+      'play-store'
+      'paypal'
+      'copyright';
   }
 `
 
@@ -49,11 +72,25 @@ const Layout = ({ pageTitle, slug, image, children }) => {
   const { t } = useTranslation()
   const { title, description, author, siteURL, social } = useSiteMetadata()
 
+  const wrapperRef = useRef()
+  const [isScrollable, setIsScrollable] = useState(false)
+
+  useEffect(() => {
+    function handleResize() {
+      setIsScrollable(wrapperRef.current?.scrollHeight > window.outerHeight)
+    }
+
+    window.addEventListener('resize', handleResize)
+  }, [wrapperRef])
+
   return (
     <>
       <Helmet>
         <title>{`${title} | ${pageTitle}`}</title>
-        <meta name="description" content={t("I'm a developer and this is my website.")} />
+        <meta
+          name="description"
+          content={t("I'm a developer and this is my website.")}
+        />
         <meta name="author" content={author} />
         <meta name="copyright" content={author} />
 
@@ -68,7 +105,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
 
       <GlobalStyle />
 
-      <Wrapper>
+      <Wrapper ref={wrapperRef} className={isScrollable ? 'scrollable' : ''}>
         <Grid>
           <Header />
 

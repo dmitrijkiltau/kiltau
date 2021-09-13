@@ -5,6 +5,16 @@ import styled from 'styled-components'
 import IconCopyright from '../icons/copyright.svg'
 import IconCaretRight from '../icons/caret-right.svg'
 
+const Text = styled.p`
+  @media (max-width: 61rem) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 36rem) {
+    font-size: 0.9em;
+  }
+`
+
 const StyledCopyright = styled.div`
   grid-area: copyright;
   display: flex;
@@ -18,12 +28,12 @@ export const Copyright = () => {
 
   return (
     <StyledCopyright>
-      <p>
+      <Text>
         <IconCopyright /> 2021 Dmitrij <Link to="/">Kiltau</Link>.{' '}
         <Trans>All rights reserved</Trans>
-      </p>
+      </Text>
 
-      <p>
+      <Text>
         {languages.map((lng) => {
           return lng !== language ? (
             <Link to={originalPath} language={lng} key={lng}>
@@ -33,7 +43,7 @@ export const Copyright = () => {
             ''
           )
         })}
-      </p>
+      </Text>
     </StyledCopyright>
   )
 }
@@ -53,7 +63,7 @@ const StyledPlayStore = styled.div`
 export const PlayStore = () => {
   return (
     <StyledPlayStore>
-      <p>
+      <Text>
         <a
           href="https://play.google.com/store/apps/dev?id=4827793113950227625"
           target="_blank"
@@ -62,7 +72,7 @@ export const PlayStore = () => {
           Google Play Store
           <IconCaretRight />
         </a>
-      </p>
+      </Text>
     </StyledPlayStore>
   )
 }
@@ -74,7 +84,7 @@ const StyledPayPal = styled(StyledPlayStore)`
 export const PayPal = () => {
   return (
     <StyledPayPal>
-      <p>
+      <Text>
         <a
           href="https://paypal.me/kiltau"
           target="_blank"
@@ -83,7 +93,7 @@ export const PayPal = () => {
           <Trans>Buy me a coffee</Trans>
           <IconCaretRight />
         </a>
-      </p>
+      </Text>
     </StyledPayPal>
   )
 }
