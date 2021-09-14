@@ -23,7 +23,6 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   width: 112rem;
-  height: 67.5rem;
   display: grid;
   align-content: center;
   grid-template-columns: repeat(4, 1fr);
@@ -35,6 +34,10 @@ const Grid = styled.div`
     'copyright copyright play-store paypal';
   grid-gap: 4rem;
   margin: 0 4rem;
+
+  @media (min-width: 112rem) {
+    height: 67.5rem;
+  }
 
   @media (max-width: 81rem) {
     grid-template-rows: auto auto minmax(24rem, auto) auto;
@@ -80,7 +83,11 @@ const Layout = ({ pageTitle, slug, image, children }) => {
       setIsScrollable(wrapperRef.current?.scrollHeight > window.outerHeight)
     }
 
+    handleResize()
+
     window.addEventListener('resize', handleResize)
+
+    return (_) => window.removeEventListener('resize', handleResize)
   }, [wrapperRef])
 
   return (
