@@ -57,7 +57,7 @@ const Menu = ({ slug }) => {
         return (
         <StyledLink
           to={path}
-          className={path.replace(/\//gi, '') === slug.replace(/\//gi, '') ? 'active' : null}
+          className={path?.replace(/\//gi, '') === slug?.replace(/\//gi, '') ? 'active' : null}
           key={item.slug}
         >
           <Trans>{item.name}</Trans>
