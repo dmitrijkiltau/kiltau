@@ -35,7 +35,7 @@ const Grid = styled.div`
   grid-gap: 4rem;
   margin: 0 4rem;
 
-  @media (min-width: 112rem) {
+  @media (min-width: 120rem) {
     height: 67.5rem;
   }
 
@@ -73,7 +73,7 @@ const StyledMain = styled.main`
 
 const Layout = ({ pageTitle, slug, image, children }) => {
   const { t } = useTranslation()
-  const { title, description, author, siteURL, social } = useSiteMetadata()
+  const { title, description, author, siteUrl, social } = useSiteMetadata()
 
   const wrapperRef = useRef()
   const [isScrollable, setIsScrollable] = useState(false)
@@ -101,7 +101,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
         <meta name="author" content={author} />
         <meta name="copyright" content={author} />
 
-        <link rel="canonical" href={`${siteURL}${slug}`} />
+        <link rel="canonical" href={`${siteUrl}${slug}`} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={social.twitter.name} />

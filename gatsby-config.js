@@ -3,7 +3,7 @@ module.exports = {
     title: 'Kiltau',
     description: "I'm a developer and this is my website.",
     author: 'Dmitrij Kiltau',
-    siteURL: 'https://kiltau.com',
+    siteUrl: 'https://kiltau.com',
     menuItems: [
       {
         name: 'Homepage',
