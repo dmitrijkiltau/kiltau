@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 0 var(--color-secondary-50);
+  box-shadow: 0 4px 0 var(--color-primary-50);
 `
 
 const StyledLogo = styled.h1`
@@ -16,7 +16,7 @@ const StyledLogo = styled.h1`
   font-size: 3em;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--color-secondary-96);
+  color: var(--color-primary-96);
 
   @media (max-width: 61rem) {
     font-size: 2.25em;
@@ -31,7 +31,7 @@ const StyledSubtitle = styled.p`
   margin: 0;
   font-size: 1.5em;
   text-align: end;
-  color: var(--color-secondary-80);
+  color: var(--color-primary-80);
 
   @media (max-width: 61rem) {
     font-size: 1.25em;

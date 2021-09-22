@@ -20,7 +20,7 @@ const StyledCopyright = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: 500;
-  box-shadow: 0 -2px 0 var(--color-secondary-96);
+  box-shadow: 0 -2px 0 var(--color-primary-96);
 `
 
 export const Copyright = () => {
@@ -50,7 +50,7 @@ export const Copyright = () => {
 
 const StyledPlayStore = styled.div`
   grid-area: play-store;
-  box-shadow: 0 -2px 0 var(--color-secondary-96);
+  box-shadow: 0 -2px 0 var(--color-primary-96);
 
   a {
     display: flex;

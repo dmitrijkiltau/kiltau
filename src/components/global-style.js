@@ -8,12 +8,12 @@ const GlobalStyle = createGlobalStyle`
       font-size: clamp(1rem, 1.5vw, 2rem);
     }
 
-    --color-primary: hsl(0deg 0% 0%);
+    --color-primary: hsl(0deg 0% 100%);
+    --color-primary-96: hsl(0deg 0% 96%);
+    --color-primary-80: hsl(0deg 0% 80%);
+    --color-primary-50: hsl(0deg 0% 50%);
 
-    --color-secondary: hsl(0deg 0% 100%);
-    --color-secondary-96: hsl(0deg 0% 96%);
-    --color-secondary-80: hsl(0deg 0% 80%);
-    --color-secondary-50: hsl(0deg 0% 50%);
+    --color-secondary: hsl(0deg 0% 0%);
 
     --color-accent-96: hsl(200deg 66% 88%);
     --color-accent-75: hsl(200deg 19% 69%);
@@ -26,21 +26,22 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: "Work Sans", Arial, Helvetica, sans-serif;
     font-size: 1rem;
-    background-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
   }
 
   p {
     font-size: 1.125em;
-    color: var(--color-secondary-80);
+    color: var(--color-primary-80);
   }
 
   a {
     text-decoration: none;
-    color: var(--color-secondary-80);
+    color: var(--color-primary-80);
     transition: all .2s ease-in-out;
 
     &:hover {
-      color: var(--color-secondary-50);
+      color: var(--color-primary-50);
     }
   }
 

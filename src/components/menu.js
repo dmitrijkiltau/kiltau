@@ -16,8 +16,8 @@ const StyledLink = styled(Link)`
   margin: 0 2rem;
   padding-bottom: 1rem;
   font-size: 1.5em;
-  color: var(--color-secondary-80);
-  box-shadow: 0 2px var(--color-secondary-50);
+  color: var(--color-primary-80);
+  box-shadow: 0 2px var(--color-primary-50);
 
   @media (max-width: 61rem) {
     margin: 0 1rem;
