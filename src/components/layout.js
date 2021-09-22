@@ -32,8 +32,8 @@ const Grid = styled.div`
     'menu menu menu menu'
     'main main main main'
     'copyright copyright play-store paypal';
-  gap: 4rem;
-  margin: 1rem 4rem 3rem 4rem;
+  gap: 2rem;
+  margin: 0 4rem 2rem 4rem;
 
   @media (min-width: 120rem) {
     height: 67.5rem;
@@ -65,8 +65,6 @@ const Grid = styled.div`
       'paypal'
       'copyright';
   }
-  gap: 2rem;
-  margin: 0 4rem 2rem 4rem;
 `
 
 const StyledMain = styled.main`
