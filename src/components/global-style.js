@@ -2,14 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --font-size-default: 16px;
+    font-size: 16px;
 
     @media (max-width: 86rem) {
-      --font-size-default: clamp(1rem, 1.5vw, 2rem);
-    }
-
-    @media (max-width: 36rem) {
-      --font-size-default: clamp(1rem, 1.5vw, 2rem);
+      font-size: clamp(1rem, 1.5vw, 2rem);
     }
 
     --color-primary: hsl(0deg 0% 0%);
@@ -29,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: "Work Sans", Arial, Helvetica, sans-serif;
-    font-size: var(--font-size-default);
+    font-size: 1rem;
     background-color: var(--color-primary);
   }
 
