@@ -7,7 +7,6 @@ const StyledColumn = styled.div`
   flex: 0 0 calc(100% / ${(props) => props.desktop || 1} - 2rem);
   align-items: ${(props) => props.alignItems || 'flex-start'};
   justify-content: ${(props) => props.justifyContent || 'flex-start'};
-  box-shadow: 0 0 1px #fff;
 
   @media (max-width: 61rem) {
     flex: 0 0 calc(100% / ${(props) => props.tablet || 1} - 2rem);
