@@ -26,7 +26,7 @@ module.exports = {
       twitter: {
         page: 'Twitter',
         name: 'einfachdima',
-        url: 'https://twitter.com/'
+        url: 'https://twitter.com/',
       },
     },
   },
@@ -91,23 +91,12 @@ module.exports = {
         siteUrl: 'https://kiltau.com/',
         i18nextOptions: {
           interpolation: {
-            escapeValue: false 
+            escapeValue: false,
           },
           keySeparator: false,
-          nsSeparator: false
+          nsSeparator: false,
         },
-        pages: [
-          {
-            matchPath: '/:lang?/blog/:uid',
-            getLanguageFromPath: true,
-            excludeLanguages: ['es']
-          },
-          {
-            matchPath: '/preview',
-            languages: ['en']
-          }
-        ]
-      }
-    }
+      },
+    },
   ],
 }
