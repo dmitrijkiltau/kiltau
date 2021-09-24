@@ -69,6 +69,9 @@ const Grid = styled.div`
 
 const StyledMain = styled.main`
   grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `
 
 const Layout = ({ pageTitle, slug, image, children }) => {

@@ -9,18 +9,17 @@ const StyledMenu = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 `
 
 const StyledLink = styled(Link)`
   width: calc(100% / 4);
-  margin: 0 2rem;
   padding-bottom: 1rem;
   font-size: 1.5em;
   color: var(--color-primary-80);
   box-shadow: 0 2px var(--color-primary-50);
 
   @media (max-width: 61rem) {
-    margin: 0 1rem;
     font-size: 1.25em;
   }
 
