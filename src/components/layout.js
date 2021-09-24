@@ -16,13 +16,14 @@ const Wrapper = styled.div`
   justify-content: center;
 
   &.scrollable {
+    width: 100%;
     height: auto;
     align-items: flex-start;
   }
 `
 
 const Grid = styled.div`
-  width: 112rem;
+  width: calc(100% - 8rem);
   display: grid;
   align-content: center;
   grid-template-columns: repeat(4, 1fr);
@@ -83,11 +84,10 @@ const Layout = ({ pageTitle, slug, image, children }) => {
 
   useEffect(() => {
     function handleResize() {
-      setIsScrollable(wrapperRef.current?.scrollHeight > window.outerHeight)
+      setIsScrollable(wrapperRef.current?.scrollHeight > window.innerHeight)
     }
 
     handleResize()
-
     window.addEventListener('resize', handleResize)
 
     return (_) => window.removeEventListener('resize', handleResize)
