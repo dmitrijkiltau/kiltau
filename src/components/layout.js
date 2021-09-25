@@ -37,6 +37,7 @@ const Grid = styled.div`
   margin: 0 4rem 2rem 4rem;
 
   @media (min-width: 120rem) {
+    width: 120rem;
     height: 67.5rem;
   }
 
