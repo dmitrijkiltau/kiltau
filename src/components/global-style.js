@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 16px;
 
-    @media (max-width: 86rem) {
+    @media (max-width: 61rem) {
       font-size: clamp(1rem, 1.5vw, 2rem);
     }
 
@@ -30,18 +30,47 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--color-secondary);
   }
 
-  p {
-    font-size: 1.125em;
+  h2, h2, h3, h4, h5, h6, p, ul {
+    margin: 0 0 1rem 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  h2, h2, h3, h4, h5, h6 {
+    line-height: 1.5;
+    color: var(--color-primary-96);
+    font-weight: 500;
+  }
+
+  p, a, li {
+    line-height: 1.5;
+    font-size: 1.125rem;
     color: var(--color-primary-80);
   }
 
   a {
     text-decoration: none;
-    color: var(--color-primary-80);
     transition: all .2s ease-in-out;
 
     &:hover {
       color: var(--color-primary-50);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .gatsby-image-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+
+    div {
+      width: 100% !important;
+      height: 100% !important;
     }
   }
 

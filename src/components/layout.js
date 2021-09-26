@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import { Helmet } from 'react-helmet'
+
 import GlobalStyle from './global-style'
 import Header from './header'
 import Menu from './menu'
@@ -24,6 +25,7 @@ const Wrapper = styled.div`
 
 const Grid = styled.div`
   width: calc(100% - 8rem);
+  height: fit-content;
   display: grid;
   align-content: center;
   grid-template-columns: repeat(4, 1fr);

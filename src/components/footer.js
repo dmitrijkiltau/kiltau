@@ -2,10 +2,17 @@ import React from 'react'
 import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { Trans } from 'react-i18next'
 import styled from 'styled-components'
+
 import IconCopyright from '../icons/copyright.svg'
 import IconCaretRight from '../icons/caret-right.svg'
 
 const Text = styled.p`
+  margin: 1rem 0;
+
+  &:last-child {
+    margin: 1rem 0;
+  }
+
   @media (max-width: 61rem) {
     font-size: 1em;
   }
@@ -29,18 +36,18 @@ export const Copyright = () => {
   return (
     <StyledCopyright>
       <Text>
-        <IconCopyright /> 2021 Dmitrij <Link to="/">Kiltau</Link>.{' '}
-        <Trans>All rights reserved</Trans>
+        <IconCopyright /> {new Date().getFullYear()} Dmitrij{' '}
+        <Link to="/">Kiltau</Link>. <Trans>All rights reserved</Trans>
       </Text>
 
       <Text>
         {languages.map((lng) => {
-          return lng !== language ? (
-            <Link to={originalPath} language={lng} key={lng}>
-              {lng}
-            </Link>
-          ) : (
-            ''
+          return (
+            lng !== language && (
+              <Link to={originalPath} language={lng} key={lng}>
+                {lng}
+              </Link>
+            )
           )
         })}
       </Text>

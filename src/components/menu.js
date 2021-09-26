@@ -15,16 +15,12 @@ const StyledMenu = styled.nav`
 const StyledLink = styled(Link)`
   width: calc(100% / 4);
   padding-bottom: 1rem;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: var(--color-primary-80);
   box-shadow: 0 2px var(--color-primary-50);
 
   @media (max-width: 61rem) {
-    font-size: 1.25em;
-  }
-
-  @media (max-width: 61rem) {
-    font-size: 1em;
+    font-size: 1.25rem;
   }
 
   &:hover,
@@ -54,14 +50,19 @@ const Menu = ({ slug }) => {
         const path = `${prefix}/${item.slug}`
 
         return (
-        <StyledLink
-          to={path}
-          className={path?.replace(/\//gi, '') === slug?.replace(/\//gi, '') ? 'active' : null}
-          key={item.slug}
-        >
-          <Trans>{item.name}</Trans>
-        </StyledLink>
-      )})}
+          <StyledLink
+            to={path}
+            className={
+              path?.replace(/\//gi, '') === slug?.replace(/\//gi, '')
+                ? 'active'
+                : null
+            }
+            key={item.slug}
+          >
+            <Trans>{item.name}</Trans>
+          </StyledLink>
+        )
+      })}
     </StyledMenu>
   )
 }
