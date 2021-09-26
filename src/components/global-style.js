@@ -78,6 +78,33 @@ const GlobalStyle = createGlobalStyle`
     height: 1em;
     margin-bottom: -0.125em;
   }
+
+  input {
+    width: calc(100% - 1rem);
+    padding: .5rem;
+    border: none;
+    border-radius: 0;
+    font-size: 1.25rem;
+    color: var(--color-primary-96);
+    background-color: transparent;
+    box-shadow: 0 2px var(--color-primary-50);
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 2px var(--color-accent-75);
+    }
+
+    &[type="button"], &[type="submit"] {
+      box-shadow: none;
+      color: var(--color-secondary);
+      background-color: var(--color-accent-96);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-accent-75);
+      }
+    }
+  }
 `
 
 export default GlobalStyle
