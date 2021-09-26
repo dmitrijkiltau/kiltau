@@ -39,7 +39,7 @@ const SkillsPage = ({ location }) => {
   return (
     <Layout pageTitle={t('Skills')} slug={location.pathname}>
       <Row>
-        <Column lg={4} md={2}>
+        <Column lg={4} md={3} sm={2}>
           <h2>Design & Video</h2>
           <List>
             {design_video.map((item, index) => (
@@ -48,7 +48,7 @@ const SkillsPage = ({ location }) => {
           </List>
         </Column>
 
-        <Column lg={4} md={2}>
+        <Column lg={4} md={3} sm={2}>
           <h2>
             <Trans>Web development</Trans>
           </h2>
@@ -59,7 +59,7 @@ const SkillsPage = ({ location }) => {
           </List>
         </Column>
 
-        <Column lg={4} md={2}>
+        <Column lg={4} md={3} sm={2}>
           <h2>
             <Trans>App development</Trans>
           </h2>
@@ -70,7 +70,7 @@ const SkillsPage = ({ location }) => {
           </List>
         </Column>
 
-        <Column lg={4} md={2}>
+        <Column lg={4} md={1} sm={2}>
           <h2>Social</h2>
           <p>ERROR 404 social skills not found</p>
         </Column>

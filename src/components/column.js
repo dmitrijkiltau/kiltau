@@ -8,11 +8,11 @@ const StyledColumn = styled.div`
   align-items: ${(props) => props.alignItems || 'flex-start'};
   justify-content: ${(props) => props.justifyContent || 'flex-start'};
 
-  @media (max-width: 61rem) {
+  @media (max-width: 81rem) {
     flex: 0 0 calc(100% / ${(props) => props.md || props.lg || 1} - 2rem);
   }
 
-  @media (max-width: 48rem) {
+  @media (max-width: 61rem) {
     flex: 0 0
       calc(100% / ${(props) => props.sm || props.md || props.lg || 1} - 2rem);
   }

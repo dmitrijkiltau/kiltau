@@ -24,7 +24,6 @@ const StyledLink = styled(Link)`
   }
 
   &:hover,
-  &:focus,
   &.active {
     color: var(--color-accent-96);
     box-shadow: 0 2px var(--color-accent-75);
