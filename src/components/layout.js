@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import { Helmet } from 'react-helmet'
 
@@ -80,6 +81,7 @@ const StyledMain = styled.main`
 
 const Layout = ({ pageTitle, slug, image, children }) => {
   const { t } = useTranslation()
+  const { language } = useI18next()
   const { title, description, author, siteUrl, social } = useSiteMetadata()
 
   const wrapperRef = useRef()
@@ -98,8 +100,8 @@ const Layout = ({ pageTitle, slug, image, children }) => {
 
   return (
     <>
-      <Helmet>
-        <title>{`${title} | ${pageTitle}`}</title>
+      <Helmet htmlAttributes={{ lang : language }}>
+        <title>{title + ' | ' + pageTitle}</title>
         <meta
           name="description"
           content={t("I'm a developer and this is my website.")}
@@ -107,7 +109,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
         <meta name="author" content={author} />
         <meta name="copyright" content={author} />
 
-        <link rel="canonical" href={`${siteUrl}${slug}`} />
+        <link rel="canonical" href={siteUrl + slug} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={social.twitter.name} />
