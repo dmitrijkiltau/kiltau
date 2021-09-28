@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import useSiteMetadata from '../hooks/use-site-metadata'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 
 import {
@@ -53,6 +52,14 @@ const StyledLink = styled(Link)`
     font-size: 1.25rem;
   }
 
+  @media (max-width: 36rem) {
+    text-align: center;
+
+    span {
+      display: none;
+    }
+  }
+
   &:hover,
   &.active {
     color: var(--color-accent-96);
@@ -65,14 +72,6 @@ const StyledLink = styled(Link)`
 
   &:last-child {
     margin-right: 0;
-  }
-
-  @media (max-width: 36rem) {
-    text-align: center;
-
-    span {
-      display: none;
-    }
   }
 `
 
