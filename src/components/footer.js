@@ -3,8 +3,7 @@ import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { Trans } from 'react-i18next'
 import styled from 'styled-components'
 
-import IconCopyright from '../icons/copyright.svg'
-import IconCaretRight from '../icons/caret-right.svg'
+import { IconCopyright, IconCaretRight } from '../components/icons'
 
 const Text = styled.p`
   margin: 1rem 0;

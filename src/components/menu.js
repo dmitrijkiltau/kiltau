@@ -4,6 +4,36 @@ import { Link } from 'gatsby'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 
+import {
+  IconHome,
+  IconCode,
+  IconToolbox,
+  IconGamepad,
+} from '../components/icons'
+
+const menuItems = [
+  {
+    name: 'Homepage',
+    slug: '',
+    icon: <IconHome />,
+  },
+  {
+    name: 'Skills',
+    slug: 'skills',
+    icon: <IconCode />,
+  },
+  {
+    name: 'Tools',
+    slug: 'tools',
+    icon: <IconToolbox />,
+  },
+  {
+    name: 'Minigames',
+    slug: 'minigames',
+    icon: <IconGamepad />,
+  },
+]
+
 const StyledMenu = styled.nav`
   grid-area: menu;
   display: flex;
@@ -36,10 +66,17 @@ const StyledLink = styled(Link)`
   &:last-child {
     margin-right: 0;
   }
+
+  @media (max-width: 36rem) {
+    text-align: center;
+
+    span {
+      display: none;
+    }
+  }
 `
 
 const Menu = ({ slug }) => {
-  const { menuItems } = useSiteMetadata()
   const { language } = useI18next()
 
   return (
@@ -58,7 +95,11 @@ const Menu = ({ slug }) => {
             }
             key={item.slug}
           >
-            <Trans>{item.name}</Trans>
+            {item.icon}
+            <span>
+              {' '}
+              <Trans>{item.name}</Trans>
+            </span>
           </StyledLink>
         )
       })}

@@ -10,10 +10,6 @@ const useSiteMetadata = () => {
             description
             author
             siteUrl
-            menuItems {
-              name
-              slug
-            }
             social {
               twitter {
                 page

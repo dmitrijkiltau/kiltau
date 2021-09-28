@@ -11,14 +11,13 @@ import Menu from './menu'
 import { Copyright, PlayStore, PayPal } from './footer'
 
 const Wrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &.scrollable {
-    width: 100%;
     height: auto;
     align-items: flex-start;
   }
@@ -60,6 +59,7 @@ const Grid = styled.div`
   }
 
   @media (max-width: 36rem) {
+    width: calc(100% - 4rem);
     grid-template-columns: 1fr;
     grid-template-rows: auto auto minmax(12rem, auto) auto auto auto;
     grid-template-areas:
@@ -69,6 +69,7 @@ const Grid = styled.div`
       'play-store'
       'paypal'
       'copyright';
+    margin: 0 0 2rem 0;
   }
 `
 

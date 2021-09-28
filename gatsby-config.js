@@ -4,24 +4,6 @@ module.exports = {
     description: "I'm a developer and this is my website.",
     author: 'Dmitrij Kiltau',
     siteUrl: 'https://kiltau.com',
-    menuItems: [
-      {
-        name: 'Homepage',
-        slug: '',
-      },
-      {
-        name: 'Skills',
-        slug: 'skills',
-      },
-      {
-        name: 'Tools',
-        slug: 'tools',
-      },
-      {
-        name: 'Minigames',
-        slug: 'minigames',
-      },
-    ],
     social: {
       twitter: {
         page: 'Twitter',
