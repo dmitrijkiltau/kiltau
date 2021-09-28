@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
+import { Link } from 'gatsby'
 
 const StyledHeader = styled.header`
   min-height: 8em;
@@ -42,14 +43,18 @@ const StyledSubtitle = styled.p`
   }
 `
 
-const Header = () => (
-  <StyledHeader>
-    <StyledLogo>Kiltau</StyledLogo>
+const Header = ({ language }) => {
+  return (
+    <StyledHeader>
+      <Link to={language === 'de' ? '/de/' : '/'}>
+        <StyledLogo>Kiltau</StyledLogo>
+      </Link>
 
-    <StyledSubtitle>
-      <Trans>IT specialist for application development</Trans>
-    </StyledSubtitle>
-  </StyledHeader>
-)
+      <StyledSubtitle>
+        <Trans>IT specialist for application development</Trans>
+      </StyledSubtitle>
+    </StyledHeader>
+  )
+}
 
 export default Header

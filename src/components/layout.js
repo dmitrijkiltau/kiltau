@@ -123,7 +123,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
 
       <Wrapper ref={wrapperRef} className={isScrollable ? 'scrollable' : ''}>
         <Grid>
-          <Header />
+          <Header language={language} />
 
           <Menu slug={slug} />
 
