@@ -1,5 +1,4 @@
 {
-    "Generate": "Generieren",
     "General": "Allgemein",
     "Random number": "Zufallszahl",
     "Password": "Passwort",
@@ -10,5 +9,11 @@
     "Percentage": "Prozentsatz",
     "Base value": "Grundwert",
     "Percentage change": "Prozentsatzänderung",
-    "Base value change": "Grundwertänderung"
+    "Base value change": "Grundwertänderung",
+    "Generate": "Generate",
+    "of": "von",
+    "is": "ist",
+    "a change": "eine Änderung",
+    "a decrease": "eine Abnahme",
+    "an increase": "eine Zunahme"
 }

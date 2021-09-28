@@ -1,5 +1,4 @@
 {
-    "Generate": "Generate",
     "General": "General",
     "Random number": "Random number",
     "Password": "Password",
@@ -10,5 +9,11 @@
     "Percentage": "Percentage",
     "Base value": "Base value",
     "Percentage change": "Percentage change",
-    "Base value change": "Base value change"
+    "Base value change": "Base value change",
+    "Generate": "Generate",
+    "of": "of",
+    "is": "is",
+    "a change": "a change",
+    "a decrease": "a decrease",
+    "an increase": "an increase"
 }

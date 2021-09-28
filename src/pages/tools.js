@@ -8,6 +8,11 @@ import Row from '../components/row'
 import Column from '../components/column'
 
 import RandomNumber from '../components/tools/random-number'
+import PercentageValue from '../components/tools/percentage-value'
+import Percentage from '../components/tools/percentage'
+import BaseValue from '../components/tools/base-value'
+import PercentageChange from '../components/tools/percentage-change'
+import BaseValueChange from '../components/tools/base-value-change'
 
 const allTools = [
   {
@@ -36,23 +41,23 @@ const allTools = [
     tools: [
       {
         name: 'Percentage value',
-        tool: '',
+        tool: <PercentageValue />,
       },
       {
         name: 'Percentage',
-        tool: '',
+        tool: <Percentage />,
       },
       {
         name: 'Base value',
-        tool: '',
+        tool: <BaseValue />,
       },
       {
         name: 'Percentage change',
-        tool: '',
+        tool: <PercentageChange />,
       },
       {
         name: 'Base value change',
-        tool: '',
+        tool: <BaseValueChange />,
       },
     ],
   },

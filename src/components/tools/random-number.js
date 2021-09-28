@@ -39,9 +39,9 @@ const Submit = styled.input`
 const RandomNumber = () => {
   const { t } = useTranslation()
 
-  const minNumberRef = useRef()
-  const maxNumberRef = useRef()
-  const randomNumberRef = useRef()
+  const minRef = useRef()
+  const maxRef = useRef()
+  const resultRef = useRef()
 
   const [lastRandomNumber, setLastRandomNumber] = useState(0)
 
@@ -54,16 +54,14 @@ const RandomNumber = () => {
 
         const progress = Math.min((timestamp - startTimestamp) / duration, 1)
 
-        randomNumberRef.current.value = Math.floor(
-          progress * (end - start) + start
-        )
+        resultRef.current.value = Math.floor(progress * (end - start) + start)
 
         if (progress < 1) window.requestAnimationFrame(step)
       }
 
       window.requestAnimationFrame(step)
     },
-    [randomNumberRef]
+    [resultRef]
   )
 
   const handleChange = useCallback(
@@ -73,12 +71,12 @@ const RandomNumber = () => {
       setTimeout(function () {
         e.target.value = Math.round(e.target.value)
 
-        const min = Math.round(minNumberRef.current.value)
-        const max = Math.round(maxNumberRef.current.value)
+        const min = parseInt(minRef.current.value)
+        const max = parseInt(maxRef.current.value)
 
         if (max < min) {
-          minNumberRef.current.value = max
-          maxNumberRef.current.value = min
+          minRef.current.value = max
+          maxRef.current.value = min
         }
 
         let randomNumber = lastRandomNumber
@@ -91,7 +89,7 @@ const RandomNumber = () => {
         setLastRandomNumber(randomNumber)
       }, 300)
     },
-    [lastRandomNumber, animateRandomNumber, setLastRandomNumber]
+    [minRef, maxRef, lastRandomNumber, animateRandomNumber, setLastRandomNumber]
   )
 
   return (
@@ -99,27 +97,27 @@ const RandomNumber = () => {
       <form onSubmit={(e) => handleChange(e)}>
         <Row>
           <Column lg={2} xs={2}>
-            <Result type="number" ref={randomNumberRef} disabled />
+            <Result type="number" ref={resultRef} disabled />
           </Column>
 
           <Column lg={2} xs={2}>
             <div style={{ marginBottom: '1rem' }}>
-              <label htmlFor="minNumber">Min</label>
+              <label htmlFor="min">Min.</label>
               <Input
                 type="number"
-                ref={minNumberRef}
-                name="minNumber"
+                ref={minRef}
+                name="min"
                 defaultValue="1"
                 onChange={handleChange}
               />
             </div>
 
             <div>
-              <label htmlFor="maxNumber">Max</label>
+              <label htmlFor="max">Max.</label>
               <Input
                 type="number"
-                ref={maxNumberRef}
-                name="maxNumber"
+                ref={maxRef}
+                name="max"
                 defaultValue="10"
                 onChange={handleChange}
               />
@@ -129,7 +127,7 @@ const RandomNumber = () => {
 
         <Row>
           <Column>
-            <Submit type="submit" value={t("Generate")} />
+            <Submit type="submit" value={t('Generate')} />
           </Column>
         </Row>
       </form>
