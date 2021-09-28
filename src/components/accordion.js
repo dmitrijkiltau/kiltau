@@ -6,6 +6,7 @@ const StyledAccordion = styled.details`
     line-height: 1.5;
     font-size: 1.25rem;
     cursor: pointer;
+    color: var(--color-primary-80);
     transition: all .2s ease-in-out;
 
     &:hover {
