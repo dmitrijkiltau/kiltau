@@ -13,11 +13,11 @@ const Text = styled.p`
   }
 
   @media (max-width: 61rem) {
-    font-size: 1em;
-  }
+    font-size: 1rem;
 
-  @media (max-width: 36rem) {
-    font-size: 0.9em;
+    a {
+      font-size: 1rem;
+    }
   }
 `
 
@@ -27,6 +27,7 @@ const StyledCopyright = styled.div`
   justify-content: space-between;
   font-weight: 500;
   box-shadow: 0 -2px 0 var(--color-primary-96);
+  gap: 2rem;
 `
 
 export const Copyright = () => {
