@@ -10,6 +10,7 @@ const AnimatedResult = styled(AnimatedNumber)`
   font-size: 1.75rem;
   text-align: center;
   box-shadow: 0 2px var(--color-accent-75);
+  white-space: nowrap;
 `
 
 export default AnimatedResult

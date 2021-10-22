@@ -4,29 +4,24 @@ import { Trans } from 'react-i18next'
 
 import Row from '../row'
 import Column from '../column'
+import Input from '../input'
 import AnimatedResult from '../animated-result'
 
 const Tool = styled.form`
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
   gap: 2rem;
-`
-
-const Input = styled.input`
-  -moz-appearance: textfield;
-  text-align: end;
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
 `
 
 const Percentage = () => {
   const [value1, setValue1] = useState(25)
   const [value2, setValue2] = useState(100)
   const [result, setResult] = useState(0)
+
+  const handleChangeResult = () => {
+    setResult((value1 / value2) * 100)
+  }
 
   const handleChangeValue1 = ({ target: { value } }) => {
     setValue1(value)
@@ -38,11 +33,7 @@ const Percentage = () => {
     handleChangeResult()
   }
 
-  const handleChangeResult = () => {
-    setResult((value1 / value2) * 100)
-  }
-
-  const formatValue = (value) => `${value.toFixed(2)} %`
+  const formatValue = (value) => `${parseFloat(value.toFixed(2))} %`
 
   useEffect(handleChangeResult)
 
@@ -55,17 +46,22 @@ const Percentage = () => {
           </div>
 
           <div>
-            <label htmlFor="value">
+            <label htmlFor="percentage-value">
               <Trans>of</Trans>
             </label>
-            <Input type="number" value={value2} onChange={handleChangeValue2} />
+            <Input
+              type="number"
+              id="percentage-value"
+              value={value2}
+              onChange={handleChangeValue2}
+            />
           </div>
         </Column>
 
         <Column lg={2} xs={2}>
-          <label htmlFor="result">
+          <span>
             <Trans>is</Trans>
-          </label>
+          </span>
           <AnimatedResult value={result} formatValue={formatValue} />
         </Column>
       </Row>

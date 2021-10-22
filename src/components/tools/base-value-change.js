@@ -1,28 +1,17 @@
-import React, { useRef, useCallback, useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 
 import Row from '../row'
 import Column from '../column'
+import Input from '../input'
+import AnimatedResult from '../animated-result'
 
-const Tool = styled.div`
+const Tool = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin: 1rem 0;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-`
-
-const Input = styled.input`
-  -moz-appearance: textfield;
-  text-align: end;
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
 `
 
 const ButtonWrapper = styled.div`
@@ -40,107 +29,105 @@ const ButtonWrapper = styled.div`
   }
 `
 
-const Result = styled(Input)`
-  height: 100%;
-  font-size: 1.75rem;
-  text-align: center;
-  box-shadow: 0 2px var(--color-accent-75);
-`
-
 const BaseValueChange = () => {
-  const valueRef = useRef()
-  const percentageRef = useRef()
-  const resultRef = useRef()
-
+  const [value1, setValue1] = useState(50)
   const [operation, setOperation] = useState('+')
+  const [percentage, setPercentage] = useState(25)
+  const [result, setResult] = useState(0)
 
-  const handleChange = useCallback(
-    (e) => {
-      e?.preventDefault()
+  const handleChangeResult = () => {
+    let newResult
 
-      const value = parseFloat(valueRef.current.value)
-      const percentage = parseFloat(percentageRef.current.value)
+    switch (operation) {
+      case '−':
+        newResult = (value1 * (100 - percentage)) / 100
+        break
 
-      let result = (value * (100 + percentage)) / 100
+      case '×':
+        newResult = (value1 * (100 + percentage)) / 100 - value1
+        break
 
-      if (operation === '-') {
-        result = (value * (100 - percentage)) / 100
-      }
+      case '÷':
+        newResult = value1 * (100 / percentage)
+        break
 
-      if (operation === '*') {
-        result = (value * (100 + percentage)) / 100 - value
-      }
+      default:
+        newResult = (value1 * (100 + percentage)) / 100
+        break
+    }
 
-      if (operation === ':') {
-        result = value * (100 / percentage)
-      }
+    setResult(
+      percentage === 0 && operation === '÷'
+        ? 'undefined'
+        : parseFloat(newResult.toFixed(2))
+    )
+  }
 
-      resultRef.current.value =
-        result === Number.POSITIVE_INFINITY ||
-        result === Number.NEGATIVE_INFINITY
-          ? 'undefined'
-          : parseFloat(result.toFixed(2))
-    },
-    [valueRef, percentageRef, operation, resultRef]
-  )
+  const handleChangeValue1 = ({ target: { value } }) => {
+    setValue1(value)
+    handleChangeResult()
+  }
 
-  const handleOperationButtonClick = useCallback(
-    (e, operation) => {
-      setOperation(operation)
-      handleChange(e)
-    },
-    [setOperation, handleChange]
-  )
+  const handleClickOperationButton = ({ target: { value } }) => {
+    setOperation(value)
+    handleChangeResult()
+  }
 
-  useEffect(handleChange)
+  const handleChangePercentage = ({ target: { value } }) => {
+    setPercentage(value)
+    handleChangeResult()
+  }
+
+  const formatValue = (value) =>
+    percentage === 0 && operation === '÷'
+      ? 'undefined'
+      : parseFloat(value.toFixed(2))
+
+  useEffect(handleChangeResult)
 
   return (
-    <Tool>
-      <form onSubmit={(e) => handleChange(e)}>
-        <Row>
-          <Column lg={2} xs={2}>
-            <div style={{ marginBottom: '1rem' }}>
-              <Input
-                type="number"
-                ref={valueRef}
-                name="value"
-                defaultValue="50"
-                onChange={handleChange}
+    <Tool
+      onSubmit={(e) => {
+        e.preventDefault()
+        handleChangeResult()
+      }}
+    >
+      <Row>
+        <Column lg={2} xs={2}>
+          <div style={{ marginBottom: '1rem' }}>
+            <Input type="number" value={value1} onChange={handleChangeValue1} />
+          </div>
+
+          <ButtonWrapper>
+            {['+', '−', '×', '÷'].map((item, index) => (
+              <input
+                type="button"
+                value={item}
+                className={operation === item ? 'active' : ''}
+                onClick={handleClickOperationButton}
+                key={'operation-' + index}
               />
-            </div>
+            ))}
+          </ButtonWrapper>
 
-            <ButtonWrapper>
-              {['+', '-', '*', ':'].map((item, index) => (
-                <input
-                  type="button"
-                  value={item}
-                  className={operation === item ? 'active' : ''}
-                  key={'operation-' + index}
-                  onClick={(e) => handleOperationButtonClick(e, item)}
-                />
-              ))}
-            </ButtonWrapper>
+          <div>
+            <label htmlFor="base-value-change-percentage">%</label>
+            <Input
+              type="number"
+              id="base-value-change-percentage"
+              value={percentage}
+              onChange={handleChangePercentage}
+            />
+          </div>
+        </Column>
 
-            <div>
-              <label htmlFor="value">%</label>
-              <Input
-                type="number"
-                ref={percentageRef}
-                name="percentage"
-                defaultValue="25"
-                onChange={handleChange}
-              />
-            </div>
-          </Column>
-
-          <Column lg={2} xs={2}>
-            <label htmlFor="result">
-              <Trans>is</Trans>
-            </label>
-            <Result ref={resultRef} name="result" disabled />
-          </Column>
-        </Row>
-      </form>
+        <Column lg={2} xs={2}>
+          <span>
+            <Trans>is</Trans>
+          </span>
+          <AnimatedResult value={result} formatValue={formatValue} />
+        </Column>
+      </Row>
     </Tool>
   )
 }

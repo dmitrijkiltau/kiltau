@@ -73,7 +73,7 @@ const ToolsPage = ({ location }) => {
           <Column lg={4} md={3} sm={2} key={'category-' + index}>
             <h2><Trans>{category.title}</Trans></h2>
             {category.tools.map((tool, toolIndex) => (
-                <Accordion title={t(tool.name)} key={'tool-accordion-' + toolIndex}>
+                <Accordion title={t(tool.name)} id={tool.name} key={'tool-accordion-' + toolIndex}>
                   {tool.tool}
                 </Accordion>
               ))}
