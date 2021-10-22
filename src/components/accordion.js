@@ -24,20 +24,23 @@ const StyledAccordion = styled.details`
   }
 `
 
-const Accordion = ({ children, title, id, isOpen }) => {
+const Accordion = ({ children, title, id, isOpen, location }) => {
   const slug = id
     .toLowerCase()
     .replace(/[^\w ]+/g, '')
     .replace(/ +/g, '-')
 
-  const anchors = window.location.hash.split('#')
+  const anchors = location.hash.split('#')
 
   const handleClick = () => {
-    window.location.hash = anchors.includes(slug)
+    location.hash = anchors.includes(slug)
       ? anchors.filter((item) => item !== slug).join('#')
       : anchors.push(slug) && anchors.join('#')
+
+    typeof window !== 'undefined' && (window.location.hash = location.hash)
   }
 
+  // TODO: fix open accordion with anchor link
   return (
     <StyledAccordion id={slug || false} open={anchors.includes(slug) || isOpen}>
       <summary onClick={handleClick}>{title}</summary>
