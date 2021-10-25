@@ -30,7 +30,7 @@ const ButtonWrapper = styled.div`
 `
 
 const BaseValueChange = () => {
-  const [value1, setValue1] = useState(50)
+  const [value, setValue] = useState(50)
   const [operation, setOperation] = useState('+')
   const [percentage, setPercentage] = useState(25)
   const [result, setResult] = useState(0)
@@ -40,46 +40,27 @@ const BaseValueChange = () => {
 
     switch (operation) {
       case '−':
-        newResult = (value1 * (100 - percentage)) / 100
+        newResult = (value * (100 - percentage)) / 100
         break
 
       case '×':
-        newResult = (value1 * (100 + percentage)) / 100 - value1
+        newResult = (value * (100 + percentage)) / 100 - value
         break
 
       case '÷':
-        newResult = value1 * (100 / percentage)
+        newResult = value * (100 / percentage)
         break
 
       default:
-        newResult = (value1 * (100 + percentage)) / 100
+        newResult = (value * (100 + percentage)) / 100
         break
     }
 
-    setResult(
-      percentage === 0 && operation === '÷'
-        ? 'undefined'
-        : parseFloat(newResult.toFixed(2))
-    )
-  }
-
-  const handleChangeValue1 = ({ target: { value } }) => {
-    setValue1(value)
-    handleChangeResult()
-  }
-
-  const handleClickOperationButton = ({ target: { value } }) => {
-    setOperation(value)
-    handleChangeResult()
-  }
-
-  const handleChangePercentage = ({ target: { value } }) => {
-    setPercentage(value)
-    handleChangeResult()
+    setResult(parseFloat(newResult.toFixed(2)))
   }
 
   const formatValue = (value) =>
-    percentage === 0 && operation === '÷'
+    parseFloat(percentage) === 0 && operation === '÷'
       ? 'undefined'
       : parseFloat(value.toFixed(2))
 
@@ -87,15 +68,21 @@ const BaseValueChange = () => {
 
   return (
     <Tool
-      onSubmit={(e) => {
+      onChange={(e) => {
         e.preventDefault()
-        handleChangeResult()
+        handleChangeResult(e)
       }}
     >
       <Row>
         <Column lg={2} xs={2}>
           <div style={{ marginBottom: '1rem' }}>
-            <Input type="number" value={value1} onChange={handleChangeValue1} />
+            <Input
+              type="number"
+              value={value}
+              onChange={({ target: { value } }) =>
+                setValue(parseFloat(value) || value)
+              }
+            />
           </div>
 
           <ButtonWrapper>
@@ -104,7 +91,7 @@ const BaseValueChange = () => {
                 type="button"
                 value={item}
                 className={operation === item ? 'active' : ''}
-                onClick={handleClickOperationButton}
+                onClick={({ target: { value } }) => setOperation(value)}
                 key={'operation-' + index}
               />
             ))}
@@ -116,7 +103,9 @@ const BaseValueChange = () => {
               type="number"
               id="base-value-change-percentage"
               value={percentage}
-              onChange={handleChangePercentage}
+              onChange={({ target: { value } }) =>
+                setPercentage(parseFloat(value) || value)
+              }
             />
           </div>
         </Column>
