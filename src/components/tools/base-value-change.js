@@ -59,10 +59,21 @@ const BaseValueChange = () => {
     setResult(parseFloat(newResult.toFixed(2)))
   }
 
-  const formatValue = (value) =>
-    parseFloat(percentage) === 0 && operation === '÷'
+  const handleChangeValue = ({ target: { value } }) => {
+    return setValue(parseFloat(value) || value)
+  }
+
+  const handleChangeOperation = ({ target: { value } }) => setOperation(value)
+
+  const handleChangePercentage = ({ target: { value } }) => {
+    return setPercentage(parseFloat(value) || value)
+  }
+
+  const formatValue = (value) => {
+    return percentage === 0 && operation === '÷'
       ? 'undefined'
       : parseFloat(value.toFixed(2))
+  }
 
   useEffect(handleChangeResult)
 
@@ -70,19 +81,13 @@ const BaseValueChange = () => {
     <Tool
       onChange={(e) => {
         e.preventDefault()
-        handleChangeResult(e)
+        handleChangeResult()
       }}
     >
       <Row>
         <Column lg={2} xs={2}>
           <div style={{ marginBottom: '1rem' }}>
-            <Input
-              type="number"
-              value={value}
-              onChange={({ target: { value } }) =>
-                setValue(parseFloat(value) || value)
-              }
-            />
+            <Input type="number" value={value} onChange={handleChangeValue} />
           </div>
 
           <ButtonWrapper>
@@ -91,7 +96,7 @@ const BaseValueChange = () => {
                 type="button"
                 value={item}
                 className={operation === item ? 'active' : ''}
-                onClick={({ target: { value } }) => setOperation(value)}
+                onClick={handleChangeOperation}
                 key={'operation-' + index}
               />
             ))}
@@ -103,9 +108,7 @@ const BaseValueChange = () => {
               type="number"
               id="base-value-change-percentage"
               value={percentage}
-              onChange={({ target: { value } }) =>
-                setPercentage(parseFloat(value) || value)
-              }
+              onChange={handleChangePercentage}
             />
           </div>
         </Column>

@@ -36,13 +36,11 @@ const PercentageChange = () => {
   }
 
   const handleChangeValue1 = ({ target: { value } }) => {
-    setValue1(value)
-    handleChangeResult()
+    setValue1(parseFloat(value) || value)
   }
 
   const handleChangeValue2 = ({ target: { value } }) => {
-    setValue2(value)
-    handleChangeResult()
+    setValue2(parseFloat(value) || value)
   }
 
   const formatValue = (value) => parseFloat(value.toFixed(2)) + ' %'
@@ -50,7 +48,12 @@ const PercentageChange = () => {
   useEffect(handleChangeResult)
 
   return (
-    <Tool>
+    <Tool
+      onChange={(e) => {
+        e.preventDefault()
+        handleChangeResult()
+      }}
+    >
       <Row>
         <Column lg={2} xs={2}>
           <div style={{ marginBottom: '1rem' }}>

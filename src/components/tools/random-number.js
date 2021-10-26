@@ -25,6 +25,10 @@ const RandomNumber = () => {
   const [max, setMax] = useState(10)
   const [result, setResult] = useState(0)
 
+  const getRandomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
   const handleChangeResult = () => {
     const currentMin = min
     const currentMax = max
@@ -37,31 +41,26 @@ const RandomNumber = () => {
     let randomNumber = result
 
     while (randomNumber === result) {
-      randomNumber = Math.floor(Math.random() * (max - min + 1) + min)
+      randomNumber = getRandomNumber(min, max)
     }
 
     setResult(randomNumber)
   }
 
-  const handleChangeMin = ({ target: { value } }) => {
-    setMin(Math.ceil(value))
-    handleChangeResult()
-  }
+  const handleChangeMin = ({ target: { value } }) => setMin(Math.ceil(value))
 
-  const handleChangeMax = ({ target: { value } }) => {
-    setMax(Math.floor(value))
-    handleChangeResult()
-  }
+  const handleChangeMax = ({ target: { value } }) => setMax(Math.floor(value))
 
   const formatValue = (value) => Math.floor(value)
 
-  useEffect(
-    () => setResult(Math.floor(Math.random() * (max - min + 1) + min)),
-    [min, max]
-  )
+  useEffect(() => setResult(getRandomNumber(min, max)), [min, max, setResult])
 
   return (
     <Tool
+      onChange={(e) => {
+        e.preventDefault()
+        handleChangeResult()
+      }}
       onSubmit={(e) => {
         e.preventDefault()
         handleChangeResult()

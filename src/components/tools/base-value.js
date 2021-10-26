@@ -19,18 +19,14 @@ const BaseValue = () => {
   const [percentage, setPercentage] = useState(25)
   const [result, setResult] = useState(0)
 
-  const handleChangeResult = () => {
-    setResult((value * 100) / percentage)
-  }
+  const handleChangeResult = () => setResult((value * 100) / percentage)
 
   const handleChangeValue = ({ target: { value } }) => {
-    setValue(value)
-    handleChangeResult()
+    return setValue(parseFloat(value) || value)
   }
 
   const handleChangePercentage = ({ target: { value } }) => {
-    setPercentage(value)
-    handleChangeResult()
+    return setPercentage(parseFloat(value) || value)
   }
 
   const formatValue = (value) => parseFloat(value.toFixed(2))
@@ -38,7 +34,12 @@ const BaseValue = () => {
   useEffect(handleChangeResult)
 
   return (
-    <Tool>
+    <Tool
+      onChange={(e) => {
+        e.preventDefault()
+        handleChangeResult()
+      }}
+    >
       <Row>
         <Column lg={2} xs={2}>
           <div style={{ marginBottom: '1rem' }}>
@@ -59,7 +60,9 @@ const BaseValue = () => {
         </Column>
 
         <Column lg={2} xs={2}>
-          <span><Trans>of</Trans></span>
+          <span>
+            <Trans>of</Trans>
+          </span>
           <AnimatedResult value={result} formatValue={formatValue} />
         </Column>
       </Row>
