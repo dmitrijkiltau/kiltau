@@ -16,5 +16,14 @@
     "to": "to",
     "a change": "a change",
     "a decrease": "a decrease",
-    "an increase": "an increase"
+    "an increase": "an increase",
+    "Presets": "Presets",
+    "Custom": "Custom",
+    "Classic 4:3": "Classic 4:3",
+    "Classic Film 3:2": "Classic Film 3:2",
+    "Cinemascope 21:9": "Cinemascope 21:9",
+    "Ratio width": "Ratio width",
+    "Ratio height": "Ratio height",
+    "Pixel width": "Pixel width",
+    "Pixel height": "Pixel height"
 }

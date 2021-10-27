@@ -8,6 +8,7 @@ import Row from '../components/row'
 import Column from '../components/column'
 
 import RandomNumber from '../components/tools/random-number'
+import AspectRatio from '../components/tools/aspect-ratio'
 import PercentageValue from '../components/tools/percentage-value'
 import Percentage from '../components/tools/percentage'
 import BaseValue from '../components/tools/base-value'
@@ -32,7 +33,7 @@ const allTools = [
       },
       {
         name: 'Aspect ratio',
-        tool: '',
+        tool: <AspectRatio />,
       },
     ],
   },
@@ -71,12 +72,19 @@ const ToolsPage = ({ location }) => {
       <Row>
         {allTools.map((category, index) => (
           <Column lg={4} md={3} sm={2} key={'category-' + index}>
-            <h2><Trans>{category.title}</Trans></h2>
+            <h2>
+              <Trans>{category.title}</Trans>
+            </h2>
             {category.tools.map((tool, toolIndex) => (
-                <Accordion title={t(tool.name)} id={tool.name} location={location} key={'tool-accordion-' + toolIndex}>
-                  {tool.tool}
-                </Accordion>
-              ))}
+              <Accordion
+                title={t(tool.name)}
+                id={tool.name}
+                location={location}
+                key={'tool-accordion-' + toolIndex}
+              >
+                {tool.tool}
+              </Accordion>
+            ))}
           </Column>
         ))}
       </Row>

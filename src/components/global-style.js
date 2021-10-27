@@ -86,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0;
     font-size: 1.25rem;
     color: var(--color-primary-96);
-    background-color: transparent;
+    background-color: var(--color-secondary);
     box-shadow: 0 2px var(--color-primary-50);
     transition: all .2s ease-in-out;
 
@@ -103,6 +103,22 @@ const GlobalStyle = createGlobalStyle`
       &:hover {
         background-color: var(--color-accent-75);
       }
+    }
+  }
+
+  select {
+    width: 100%;
+    padding: .5rem;
+    border: none;
+    border-radius: 0;
+    font-size: 1.25rem;
+    color: var(--color-primary-96);
+    background-color: var(--color-secondary);
+    box-shadow: 0 2px var(--color-primary-50);
+    transition: all .2s ease-in-out;
+    
+    &:hover {
+      box-shadow: 0 2px var(--color-accent-75);
     }
   }
 `

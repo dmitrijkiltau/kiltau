@@ -16,5 +16,14 @@
     "to": "zu",
     "a change": "eine Änderung",
     "a decrease": "eine Abnahme",
-    "an increase": "eine Zunahme"
+    "an increase": "eine Zunahme",
+    "Presets": "Voreinstellungen",
+    "Custom": "Benutzerdefiniert",
+    "Classic 4:3": "Klassisch 4:3",
+    "Classic Film 3:2": "Klassischer Film 3:2",
+    "Cinemascope 21:9": "Cinemascope 21:9",
+    "Ratio width": "Verhältnisbreite",
+    "Ratio height": "Verhältnishöhe",
+    "Pixel width": "Pixelbreite",
+    "Pixel height": "Pixelhöhe"
 }
