@@ -60,13 +60,13 @@ const BaseValueChange = () => {
   }
 
   const handleChangeValue = ({ target: { value } }) => {
-    return setValue(parseFloat(value) || value)
+    setValue(parseFloat(value) || value)
   }
 
   const handleChangeOperation = ({ target: { value } }) => setOperation(value)
 
   const handleChangePercentage = ({ target: { value } }) => {
-    return setPercentage(parseFloat(value) || value)
+    setPercentage(parseFloat(value) || value)
   }
 
   const formatValue = (value) => {
@@ -84,8 +84,8 @@ const BaseValueChange = () => {
         handleChangeResult()
       }}
     >
-      <Row>
-        <Column lg={2} xs={2}>
+      <Row columns={2}>
+        <Column lg={1} xs={1}>
           <div style={{ marginBottom: '1rem' }}>
             <Input type="number" value={value} onChange={handleChangeValue} />
           </div>
@@ -113,7 +113,7 @@ const BaseValueChange = () => {
           </div>
         </Column>
 
-        <Column lg={2} xs={2}>
+        <Column lg={1} xs={1}>
           <span>
             <Trans>is</Trans>
           </span>

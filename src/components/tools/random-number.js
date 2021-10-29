@@ -66,12 +66,12 @@ const RandomNumber = () => {
         handleChangeResult()
       }}
     >
-      <Row>
-        <Column lg={2} xs={2}>
+      <Row columns={2}>
+        <Column lg={1} xs={1}>
           <AnimatedResult value={result} formatValue={formatValue} />
         </Column>
 
-        <Column lg={2} xs={2}>
+        <Column lg={1} xs={1}>
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="random-number-min">Min.</label>
             <Input
@@ -94,8 +94,8 @@ const RandomNumber = () => {
         </Column>
       </Row>
 
-      <Row>
-        <Column>
+      <Row columns={1}>
+        <Column lg={1} xs={1}>
           <Submit type="submit" value={t('Generate')} />
         </Column>
       </Row>

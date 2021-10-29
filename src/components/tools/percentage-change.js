@@ -54,8 +54,8 @@ const PercentageChange = () => {
         handleChangeResult()
       }}
     >
-      <Row>
-        <Column lg={2} xs={2}>
+      <Row columns={2}>
+        <Column lg={1} xs={1}>
           <div style={{ marginBottom: '1rem' }}>
             <Input type="number" value={value1} onChange={handleChangeValue1} />
           </div>
@@ -73,7 +73,7 @@ const PercentageChange = () => {
           </div>
         </Column>
 
-        <Column lg={2} xs={2}>
+        <Column lg={1} xs={1}>
           <span>
             <Trans>is</Trans> <Trans>{answer}</Trans> <Trans>of</Trans>
           </span>

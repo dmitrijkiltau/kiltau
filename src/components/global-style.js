@@ -91,6 +91,10 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: -0.125em;
   }
 
+  label {
+    width: 100%;
+  }
+
   input {
     width: calc(100% - 1rem);
     padding: .5rem;
@@ -102,7 +106,7 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: 0 2px var(--color-primary-50);
     transition: all .2s ease-in-out;
 
-    &:hover {
+    &:hover, &[disabled] {
       box-shadow: 0 2px var(--color-accent-75);
     }
 

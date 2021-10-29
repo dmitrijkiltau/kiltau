@@ -15,12 +15,67 @@ const Tool = styled.form`
   gap: 2rem;
 `
 
-const InputColumn = ({ id, title, value, onChange }) => (
-  <Column lg={2} xs={2}>
+const Switch = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + span {
+      background-color: var(--color-accent-96);
+    }
+
+    &:focus + span {
+      box-shadow: 0 0 1px var(--color-accent-96);
+    }
+
+    &:checked + span:before {
+      transform: translateX(1.5rem);
+    }
+  }
+`
+
+const Slider = styled.span`
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-primary-80);
+  border-radius: 2rem;
+  transition: 0.4s;
+
+  &:before {
+    position: absolute;
+    content: '';
+    height: 1rem;
+    width: 1rem;
+    left: 0.225rem;
+    bottom: 0.225rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+`
+
+const InputColumn = ({ id, title, value, onChange, disabled }) => (
+  <Column lg={1} xs={1}>
     <label htmlFor={id}>
       <Trans>{title}</Trans>
+      <Input
+        type="number"
+        id={id}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+      />
     </label>
-    <Input type="number" id={id} value={value} onChange={onChange} />
   </Column>
 )
 
@@ -52,6 +107,7 @@ const presets = [
 
 const AspectRatio = () => {
   const { t } = useTranslation()
+  const [calculatePixel, setCalculatePixel] = useState(true)
   const [selectedPreset, setSelectedPreset] = useState({
     value: '16:9',
     title: 'HD 16:9',
@@ -66,6 +122,8 @@ const AspectRatio = () => {
   const findPreset = (value) => presets.find((preset) => preset.value === value)
 
   const gcd = (a, b) => {
+    if (a === '' || b === '') return 0
+
     if (b === 0) return a
 
     return gcd(b, a % b)
@@ -89,25 +147,35 @@ const AspectRatio = () => {
         id: nanoid(),
         title: 'Ratio width',
         value: ratioWidth,
-        onChange: ({ target: { value } }) => {
-          const newRatioWidth = parseFloat(value) || value
+        onChange:
+          calculatePixel &&
+          (({ target: { value } }) => {
+            const newRatioWidth = parseFloat(value) || value
 
-          setRatioWidth(newRatioWidth)
-          setPixelHeight(getPixelHeight(pixelWidth, ratioHeight, newRatioWidth))
-          setSelectedPreset(findPreset('custom'))
-        },
+            setRatioWidth(newRatioWidth)
+            setPixelHeight(
+              getPixelHeight(pixelWidth, ratioHeight, newRatioWidth)
+            )
+            setSelectedPreset(findPreset('custom'))
+          }),
+        disabled: calculatePixel === false ? true : false,
       },
       {
         id: nanoid(),
         title: 'Ratio height',
         value: ratioHeight,
-        onChange: ({ target: { value } }) => {
-          const newRatioHeight = parseFloat(value) || value
+        onChange:
+          calculatePixel &&
+          (({ target: { value } }) => {
+            const newRatioHeight = parseFloat(value) || value
 
-          setRatioHeight(newRatioHeight)
-          setPixelWidth(getPixelWidth(pixelHeight, ratioWidth, newRatioHeight))
-          setSelectedPreset(findPreset('custom'))
-        },
+            setRatioHeight(newRatioHeight)
+            setPixelWidth(
+              getPixelWidth(pixelHeight, ratioWidth, newRatioHeight)
+            )
+            setSelectedPreset(findPreset('custom'))
+          }),
+        disabled: calculatePixel === false ? true : false,
       },
     ],
     pixel: [
@@ -119,8 +187,17 @@ const AspectRatio = () => {
           const newPixelWidth = parseFloat(value) || value
 
           setPixelWidth(newPixelWidth)
-          setPixelHeight(getPixelHeight(newPixelWidth, ratioHeight, ratioWidth))
+
+          if (calculatePixel) {
+            setPixelHeight(
+              getPixelHeight(newPixelWidth, ratioHeight, ratioWidth)
+            )
+          } else {
+            setRatioWidth(newPixelWidth / gcd(newPixelWidth, pixelHeight))
+            setRatioHeight(pixelHeight / gcd(newPixelWidth, pixelHeight))
+          }
         },
+        disabled: false,
       },
       {
         id: nanoid(),
@@ -130,8 +207,17 @@ const AspectRatio = () => {
           const newPixelHeight = parseFloat(value) || value
 
           setPixelHeight(newPixelHeight)
-          setPixelWidth(getPixelWidth(newPixelHeight, ratioWidth, ratioHeight))
+
+          if (calculatePixel) {
+            setPixelWidth(
+              getPixelWidth(newPixelHeight, ratioWidth, ratioHeight)
+            )
+          } else {
+            setRatioWidth(pixelWidth / gcd(pixelWidth, newPixelHeight))
+            setRatioHeight(newPixelHeight / gcd(pixelWidth, newPixelHeight))
+          }
         },
+        disabled: false,
       },
     ],
   }
@@ -153,44 +239,69 @@ const AspectRatio = () => {
 
   return (
     <Tool>
-      <Row>
-        <Column lg={1}>
-          <label htmlFor={columns.preset.id}>
-            <Trans>{columns.preset.title}</Trans>
-          </label>
-          <select
-            id={columns.preset.id}
-            value={selectedPreset.value}
-            onChange={handleChangePreset}
-          >
-            {presets.map((preset, index) => (
-              <option value={preset.value} key={`preset-${index}`}>
-                {t(preset.title)}
-              </option>
-            ))}
-          </select>
+      <Row columns={1}>
+        <Column
+          lg={1}
+          xs={1}
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Trans>Ratio</Trans>
+          <Switch>
+            <input type="checkbox" checked={calculatePixel} />
+            <Slider
+              onClick={() => {
+                setCalculatePixel(!calculatePixel)
+              }}
+            />
+          </Switch>
+          <Trans>Pixel</Trans>
         </Column>
       </Row>
 
-      <Row>
-        {columns.ratio.map((column, index) => (
+      {calculatePixel && (
+        <Row columns={1}>
+          <Column lg={1} xs={1}>
+            <label htmlFor={columns.preset.id}>
+              <Trans>{columns.preset.title}</Trans>
+              <select
+                id={columns.preset.id}
+                value={selectedPreset.value}
+                onChange={handleChangePreset}
+              >
+                {presets.map((preset, index) => (
+                  <option value={preset.value} key={`preset-${index}`}>
+                    {t(preset.title)}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </Column>
+        </Row>
+      )}
+
+      <Row columns={2}>
+        {columns[calculatePixel ? 'ratio' : 'pixel'].map((column, index) => (
           <InputColumn
             id={column.id}
             title={column.title}
             value={column.value}
             onChange={column.onChange}
+            disabled={column.disabled}
             key={`ratio-${index}`}
           />
         ))}
       </Row>
 
-      <Row>
-        {columns.pixel.map((column, index) => (
+      <Row columns={2}>
+        {columns[calculatePixel ? 'pixel' : 'ratio'].map((column, index) => (
           <InputColumn
             id={column.id}
             title={column.title}
             value={column.value}
             onChange={column.onChange}
+            disabled={column.disabled}
             key={`pixel-${index}`}
           />
         ))}

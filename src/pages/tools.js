@@ -71,7 +71,7 @@ const ToolsPage = ({ location }) => {
     <Layout pageTitle={t('Tools')} slug={location.pathname}>
       <Row>
         {allTools.map((category, index) => (
-          <Column lg={4} md={3} sm={2} key={'category-' + index}>
+          <Column lg={3} md={4} sm={6} key={'category-' + index}>
             <h2>
               <Trans>{category.title}</Trans>
             </h2>

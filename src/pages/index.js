@@ -86,7 +86,7 @@ const IndexPage = ({ location, data }) => {
   return (
     <Layout slug={location.pathname} pageTitle={t('Homepage')}>
       <Row fullHeight={true}>
-        <Column lg={2} sm={1} justifyContent="flex-end">
+        <Column lg={6} sm={12} justifyContent="flex-end">
           <Title>
             <Trans>About me</Trans>
           </Title>
@@ -126,7 +126,7 @@ const IndexPage = ({ location, data }) => {
           </Text>
         </Column>
 
-        <Column lg={4} md={4} sm={2}>
+        <Column lg={3} md={4} sm={6}>
           <h2>
             <Trans>Contact</Trans>
           </h2>
@@ -147,7 +147,7 @@ const IndexPage = ({ location, data }) => {
           </List>
         </Column>
 
-        <Column lg={4} md={4} sm={2}>
+        <Column lg={3} md={4} sm={6}>
           <GatsbyImage
             image={data.file.childImageSharp.gatsbyImageData}
             alt=""
