@@ -8,15 +8,27 @@ const GlobalStyle = createGlobalStyle`
       font-size: clamp(1rem, 1.5vw, 2rem);
     }
 
-    --color-primary: hsl(0deg 0% 100%);
-    --color-primary-96: hsl(0deg 0% 96%);
-    --color-primary-80: hsl(0deg 0% 80%);
+    --color-primary: hsl(0deg 0% 0%);
+    --color-primary-96: hsl(0deg 0% 4%);
+    --color-primary-80: hsl(0deg 0% 20%);
     --color-primary-50: hsl(0deg 0% 50%);
 
-    --color-secondary: hsl(0deg 0% 0%);
+    --color-secondary: hsl(0deg 0% 100%);
 
-    --color-accent-96: hsl(200deg 66% 88%);
-    --color-accent-75: hsl(200deg 19% 69%);
+    --color-accent-96: hsl(200deg 66% 36%);
+    --color-accent-75: hsl(200deg 66% 24%);
+
+    @media (prefers-color-scheme: dark) {
+      --color-primary: hsl(0deg 0% 100%);
+      --color-primary-96: hsl(0deg 0% 96%);
+      --color-primary-80: hsl(0deg 0% 80%);
+      --color-primary-50: hsl(0deg 0% 50%);
+
+      --color-secondary: hsl(0deg 0% 0%);
+
+      --color-accent-96: hsl(200deg 66% 88%);
+      --color-accent-75: hsl(200deg 19% 69%);
+    }
   }
 
   body {
