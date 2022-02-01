@@ -50,9 +50,6 @@ const StyledLink = styled(Link)`
 
   @media (max-width: 61rem) {
     font-size: 1.25rem;
-  }
-
-  @media (max-width: 36rem) {
     text-align: center;
 
     span {

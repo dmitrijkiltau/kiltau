@@ -58,7 +58,7 @@ const Slider = styled.span`
     width: 1rem;
     left: 0.225rem;
     bottom: 0.225rem;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     border-radius: 50%;
     transition: 0.4s;
   }
@@ -249,7 +249,7 @@ const AspectRatio = () => {
         >
           <Trans>Ratio</Trans>
           <Switch>
-            <input type="checkbox" checked={calculatePixel} />
+            <input type="checkbox" checked={calculatePixel} readOnly="" />
             <Slider
               onClick={() => {
                 setCalculatePixel(!calculatePixel)

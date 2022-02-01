@@ -52,11 +52,10 @@ const Title = styled.h2`
 const Text = styled.p`
   width: 75%;
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 
   @media (max-width: 81rem) {
     width: auto;
-    font-size: 1.25rem;
   }
 `
 

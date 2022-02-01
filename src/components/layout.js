@@ -44,18 +44,18 @@ const Grid = styled.div`
   }
 
   @media (max-width: 81rem) {
-    grid-template-rows: auto auto minmax(24rem, auto) auto;
-  }
-
-  @media (max-width: 61rem) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto minmax(18rem, auto) auto auto;
+    grid-template-rows: auto auto minmax(24rem, auto) auto auto;
     grid-template-areas:
       'header header'
       'menu menu'
       'main main'
       'play-store paypal'
       'copyright copyright';
+  }
+
+  @media (max-width: 81rem) {
+    grid-template-rows: auto auto minmax(18rem, auto) auto auto;
   }
 
   @media (max-width: 36rem) {

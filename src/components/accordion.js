@@ -37,7 +37,7 @@ const Accordion = ({ children, title, id, isOpen, location }) => {
       ? anchors.filter((item) => item !== slug).join('#')
       : anchors.push(slug) && anchors.join('#')
 
-    typeof window !== 'undefined' && (window.location.hash = location.hash)
+    if (typeof window !== 'undefined') window.location.hash = location.hash
   }
 
   // TODO: fix open accordion with anchor link
