@@ -121,7 +121,7 @@ const StyledFooter = styled.div`
 
   @media (max-width: 36rem) {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 'copyright' 'play-store' 'paypal';
   }
 `
