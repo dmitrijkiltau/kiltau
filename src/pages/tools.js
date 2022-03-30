@@ -8,6 +8,7 @@ import Row from '../components/row'
 import Column from '../components/column'
 
 import RandomNumber from '../components/tools/random-number'
+import PasswordGenerator from '../components/tools/password-generator'
 import AspectRatio from '../components/tools/aspect-ratio'
 import PercentageValue from '../components/tools/percentage-value'
 import Percentage from '../components/tools/percentage'
@@ -25,11 +26,7 @@ const allTools = [
       },
       {
         name: 'Password',
-        tool: '',
-      },
-      {
-        name: 'Date',
-        tool: '',
+        tool: <PasswordGenerator />
       },
       {
         name: 'Aspect ratio',

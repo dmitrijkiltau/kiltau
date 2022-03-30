@@ -6,6 +6,7 @@ import { Trans } from 'react-i18next'
 
 import Row from '../row'
 import Column from '../column'
+import Switch from '../switch'
 import Input from '../input'
 
 const Tool = styled.form`
@@ -13,55 +14,6 @@ const Tool = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-`
-
-const Switch = styled.label`
-  position: relative;
-  display: inline-block;
-  width: 3rem;
-  height: 1.5rem;
-
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-
-    &:checked + span {
-      background-color: var(--color-accent-96);
-    }
-
-    &:focus + span {
-      box-shadow: 0 0 1px var(--color-accent-96);
-    }
-
-    &:checked + span:before {
-      transform: translateX(1.5rem);
-    }
-  }
-`
-
-const Slider = styled.span`
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--color-primary-80);
-  border-radius: 2rem;
-  transition: 0.4s;
-
-  &:before {
-    position: absolute;
-    content: '';
-    height: 1rem;
-    width: 1rem;
-    left: 0.225rem;
-    bottom: 0.225rem;
-    background-color: var(--color-secondary);
-    border-radius: 50%;
-    transition: 0.4s;
-  }
 `
 
 const InputColumn = ({ id, title, value, onChange, disabled }) => (
@@ -248,14 +200,12 @@ const AspectRatio = () => {
           justifyContent="space-between"
         >
           <Trans>Ratio</Trans>
-          <Switch>
-            <input type="checkbox" checked={calculatePixel} readOnly="" />
-            <Slider
-              onClick={() => {
-                setCalculatePixel(!calculatePixel)
-              }}
-            />
-          </Switch>
+          <Switch
+            checked={calculatePixel}
+            onClick={() => {
+              setCalculatePixel(!calculatePixel)
+            }}
+          />
           <Trans>Pixel</Trans>
         </Column>
       </Row>
