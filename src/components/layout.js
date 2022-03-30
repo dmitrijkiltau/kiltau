@@ -61,19 +61,21 @@ const Layout = ({ pageTitle, slug, image, children }) => {
   const [isScrollable, setIsScrollable] = useState(false)
 
   useEffect(() => {
-    function handleResize() {
+    function handleScroll() {
       setIsScrollable(wrapperRef.current?.scrollHeight > window.innerHeight)
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, {passive: true})
 
-    return (_) => window.removeEventListener('resize', handleResize)
-  }, [wrapperRef])
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
 
   return (
     <>
-      <Helmet htmlAttributes={{ lang : language }}>
+      <Helmet htmlAttributes={{ lang: language }}>
         <title>{title + ' | ' + pageTitle}</title>
         <meta
           name="description"
@@ -101,7 +103,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
 
           <StyledMain>{children}</StyledMain>
 
-          <Footer/>
+          <Footer />
         </Grid>
       </Wrapper>
     </>
