@@ -113,7 +113,7 @@ const StyledFooter = styled.div`
   grid-template-areas: 'copyright play-store paypal';
   gap: 2rem;
 
-  @media (max-width: var(--size-md)) {
+  @media (max-width: 61rem) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'copyright copyright' 'play-store paypal';
