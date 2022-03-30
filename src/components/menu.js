@@ -83,7 +83,7 @@ const Menu = ({ slug }) => {
 
         return (
           <StyledLink
-            to={path}
+            to={item.slug === 'minigames' ? `${prefix}/tools` : path}
             className={
               path?.replace(/\//gi, '') === slug?.replace(/\//gi, '')
                 ? 'active'
