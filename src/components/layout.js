@@ -25,7 +25,6 @@ const Wrapper = styled.div`
 `
 
 const Grid = styled.div`
-  width: calc(100% - 8rem);
   height: fit-content;
   display: grid;
   align-content: center;
