@@ -30,7 +30,7 @@ const StyledCopyright = styled.div`
   gap: 2rem;
 `
 
-export const Copyright = () => {
+const Copyright = () => {
   const { language, languages, originalPath } = useI18next()
 
   return (
@@ -67,7 +67,7 @@ const StyledPlayStore = styled.div`
   }
 `
 
-export const PlayStore = () => {
+const PlayStore = () => {
   return (
     <StyledPlayStore>
       <Text>
@@ -88,7 +88,7 @@ const StyledPayPal = styled(StyledPlayStore)`
   grid-area: paypal;
 `
 
-export const PayPal = () => {
+const PayPal = () => {
   return (
     <StyledPayPal>
       <Text>
@@ -104,3 +104,36 @@ export const PayPal = () => {
     </StyledPayPal>
   )
 }
+
+const StyledFooter = styled.div`
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'copyright play-store paypal';
+  gap: 2rem;
+
+  @media (max-width: var(--size-md)) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'copyright copyright' 'play-store paypal';
+  }
+
+  @media (max-width: 36rem) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: 'copyright' 'play-store' 'paypal';
+  }
+`
+
+const Footer = () => {
+  return (
+    <StyledFooter>
+      <Copyright />
+      <PlayStore />
+      <PayPal />
+    </StyledFooter>
+  )
+}
+
+export default Footer

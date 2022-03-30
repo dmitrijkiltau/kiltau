@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet'
 import GlobalStyle from './global-style'
 import Header from './header'
 import Menu from './menu'
-import { Copyright, PlayStore, PayPal } from './footer'
+import Footer from './footer'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 
   &.scrollable {
     height: auto;
@@ -28,48 +29,19 @@ const Grid = styled.div`
   height: fit-content;
   display: grid;
   align-content: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: auto auto minmax(36rem, auto) auto;
   grid-template-areas:
-    'header header header header'
-    'menu menu menu menu'
-    'main main main main'
-    'copyright copyright play-store paypal';
+    'header'
+    'menu'
+    'main'
+    'footer';
   gap: 2rem;
   margin: 0 4rem 2rem 4rem;
 
   @media (min-width: 120rem) {
     width: 120rem;
     height: 67.5rem;
-  }
-
-  @media (max-width: 81rem) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto minmax(24rem, auto) auto auto;
-    grid-template-areas:
-      'header header'
-      'menu menu'
-      'main main'
-      'play-store paypal'
-      'copyright copyright';
-  }
-
-  @media (max-width: 81rem) {
-    grid-template-rows: auto auto minmax(18rem, auto) auto auto;
-  }
-
-  @media (max-width: 36rem) {
-    width: calc(100% - 4rem);
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto minmax(12rem, auto) auto auto auto;
-    grid-template-areas:
-      'header'
-      'menu'
-      'main'
-      'play-store'
-      'paypal'
-      'copyright';
-    margin: 0 0 2rem 0;
   }
 `
 
@@ -129,11 +101,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
 
           <StyledMain>{children}</StyledMain>
 
-          <Copyright />
-
-          <PlayStore />
-
-          <PayPal />
+          <Footer/>
         </Grid>
       </Wrapper>
     </>

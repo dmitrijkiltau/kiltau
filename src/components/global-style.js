@@ -2,12 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    font-size: 16px;
-
-    @media (max-width: 61rem) {
-      font-size: clamp(1rem, 1.5vw, 2rem);
-    }
-
     --color-primary: hsl(0deg 0% 0%);
     --color-primary-96: hsl(0deg 0% 4%);
     --color-primary-80: hsl(0deg 0% 20%);
@@ -28,6 +22,12 @@ const GlobalStyle = createGlobalStyle`
 
       --color-accent-96: hsl(200deg 66% 88%);
       --color-accent-75: hsl(200deg 19% 69%);
+    }
+
+    font-size: 16px;
+
+    @media (max-width: 61rem) {
+      font-size: clamp(1rem, 1.5vw, 2rem);
     }
   }
 
