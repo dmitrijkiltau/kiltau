@@ -53,7 +53,7 @@ const StyledSlider = styled.span`
 const Switch = ({ checked = false, onClick = () => {} }) => {
   return (
     <StyledSwitch>
-      <input type="checkbox" checked={checked} readOnly="" />
+      <input type="checkbox" defaultChecked={checked} readOnly="" />
       <StyledSlider onClick={onClick}></StyledSlider>
     </StyledSwitch>
   )
