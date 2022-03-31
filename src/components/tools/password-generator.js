@@ -48,9 +48,9 @@ const PasswordGenerator = () => {
     if (withSpecial) characters += special
 
     for (let i = 0; i < length; i++) {
-      newPassword += characters.charAt(
-        Math.floor(Math.random() * characters.length + 1)
-      )
+      const randomChar = Math.floor(Math.random() * characters.length)
+
+      newPassword += characters.charAt(randomChar)
     }
 
     setPassword(newPassword)
