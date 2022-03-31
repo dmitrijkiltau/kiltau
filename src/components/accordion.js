@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledAccordion = styled.details`
+  width: 100%;
+
   summary {
     line-height: 1.5;
     font-size: 1.25rem;

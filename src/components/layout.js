@@ -42,6 +42,10 @@ const Grid = styled.div`
   @media (min-width: 120rem) {
     width: 120rem;
     height: 67.5rem;
+
+    &.scrollable {
+      height: auto;
+    }
   }
 `
 
@@ -71,7 +75,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  })
+  }, [setIsScrollable])
 
   return (
     <>
@@ -96,7 +100,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
       <GlobalStyle />
 
       <Wrapper ref={wrapperRef} className={isScrollable ? 'scrollable' : ''}>
-        <Grid>
+        <Grid className={isScrollable ? 'scrollable' : ''}>
           <Header language={language} />
 
           <Menu slug={slug} />
