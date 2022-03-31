@@ -17,12 +17,23 @@ const StyledAccordion = styled.details`
     }
   }
 
-  &[open] summary {
-    color: var(--color-primary-50);
+  &[open] {
+    summary {
+      color: var(--color-primary-50);
+    }
+
+    & > div {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   & > div {
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-45deg);
+    transform-origin: 50% 0;
+    transition: all .5s ease-in-out;
   }
 `
 
@@ -34,18 +45,9 @@ const Accordion = ({ children, title, id, isOpen, location }) => {
 
   const anchors = location.hash.split('#')
 
-  const handleClick = () => {
-    location.hash = anchors.includes(slug)
-      ? anchors.filter((item) => item !== slug).join('#')
-      : anchors.push(slug) && anchors.join('#')
-
-    if (typeof window !== 'undefined') window.location.hash = location.hash
-  }
-
-  // TODO: fix open accordion with anchor link
   return (
     <StyledAccordion id={slug || false} open={anchors.includes(slug) || isOpen}>
-      <summary onClick={handleClick}>{title}</summary>
+      <summary>{title}</summary>
       <div>{children}</div>
     </StyledAccordion>
   )
