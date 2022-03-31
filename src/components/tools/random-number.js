@@ -2,17 +2,11 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-import Row from '../row'
-import Column from '../column'
-import AnimatedResult from '../animated-result'
-import Input from '../input'
-
-const Tool = styled.form`
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`
+import Form from '../form/form'
+import Row from '../container/row'
+import Column from '../container/column'
+import AnimatedResult from '../form/animated-result'
+import Input from '../form/input'
 
 const Submit = styled.input`
   width: 100%;
@@ -56,7 +50,7 @@ const RandomNumber = () => {
   useEffect(() => setResult(getRandomNumber(min, max)), [min, max, setResult])
 
   return (
-    <Tool
+    <Form
       onChange={(e) => {
         e.preventDefault()
         handleChangeResult()
@@ -99,7 +93,7 @@ const RandomNumber = () => {
           <Submit type="submit" value={t('Generate')} />
         </Column>
       </Row>
-    </Tool>
+    </Form>
   )
 }
 

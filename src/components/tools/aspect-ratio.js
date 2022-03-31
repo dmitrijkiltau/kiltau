@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { nanoid } from 'nanoid'
 import { useTranslation } from 'react-i18next'
 import { Trans } from 'react-i18next'
 
-import Row from '../row'
-import Column from '../column'
-import Switch from '../switch'
-import Input from '../input'
+import Form from '../form/form'
+import Row from '../container/row'
+import Column from '../container/column'
+import Container from '../container/container'
+import Switch from '../form/switch'
+import Input from '../form/input'
 
-const Tool = styled.form`
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`
-
-const InputColumn = ({ id, title, value, onChange, disabled }) => (
-  <Column lg={1} xs={1}>
+const InputContainer = ({ id, title, value, onChange, disabled }) => (
+  <Container>
     <label htmlFor={id}>
       <Trans>{title}</Trans>
       <Input
@@ -28,7 +22,7 @@ const InputColumn = ({ id, title, value, onChange, disabled }) => (
         disabled={disabled}
       />
     </label>
-  </Column>
+  </Container>
 )
 
 const presets = [
@@ -182,7 +176,6 @@ const AspectRatio = () => {
     if (newPreset.value !== 'custom') {
       setRatioWidth(newPreset.width)
       setRatioHeight(newPreset.height)
-
       setPixelHeight(
         getPixelHeight(pixelWidth, newPreset.height, newPreset.width)
       )
@@ -190,7 +183,7 @@ const AspectRatio = () => {
   }
 
   return (
-    <Tool>
+    <Form>
       <Row columns={1}>
         <Column
           lg={1}
@@ -211,29 +204,27 @@ const AspectRatio = () => {
       </Row>
 
       {calculatePixel && (
-        <Row columns={1}>
-          <Column lg={1} xs={1}>
-            <label htmlFor={columns.preset.id}>
-              <Trans>{columns.preset.title}</Trans>
-              <select
-                id={columns.preset.id}
-                value={selectedPreset.value}
-                onChange={handleChangePreset}
-              >
-                {presets.map((preset, index) => (
-                  <option value={preset.value} key={`preset-${index}`}>
-                    {t(preset.title)}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </Column>
-        </Row>
+        <Container>
+          <label htmlFor={columns.preset.id}>
+            <Trans>{columns.preset.title}</Trans>
+            <select
+              id={columns.preset.id}
+              value={selectedPreset.value}
+              onChange={handleChangePreset}
+            >
+              {presets.map((preset, index) => (
+                <option value={preset.value} key={`preset-${index}`}>
+                  {t(preset.title)}
+                </option>
+              ))}
+            </select>
+          </label>
+        </Container>
       )}
 
       <Row columns={2}>
         {columns[calculatePixel ? 'ratio' : 'pixel'].map((column, index) => (
-          <InputColumn
+          <InputContainer
             id={column.id}
             title={column.title}
             value={column.value}
@@ -246,7 +237,7 @@ const AspectRatio = () => {
 
       <Row columns={2}>
         {columns[calculatePixel ? 'pixel' : 'ratio'].map((column, index) => (
-          <InputColumn
+          <InputContainer
             id={column.id}
             title={column.title}
             value={column.value}
@@ -256,7 +247,7 @@ const AspectRatio = () => {
           />
         ))}
       </Row>
-    </Tool>
+    </Form>
   )
 }
 

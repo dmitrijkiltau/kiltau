@@ -5,8 +5,8 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import Row from '../components/row'
-import Column from '../components/column'
+import Row from '../components/container/row'
+import Column from '../components/container/column'
 import Tooltip from '../components/tooltip'
 
 const social = [

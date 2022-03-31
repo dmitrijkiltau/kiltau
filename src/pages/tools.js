@@ -4,8 +4,8 @@ import { useTranslation, Trans } from 'react-i18next'
 
 import Layout from '../components/layout'
 import Accordion from '../components/accordion'
-import Row from '../components/row'
-import Column from '../components/column'
+import Row from '../components/container/row'
+import Column from '../components/container/column'
 
 import RandomNumber from '../components/tools/random-number'
 import PasswordGenerator from '../components/tools/password-generator'

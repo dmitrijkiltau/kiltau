@@ -2,17 +2,11 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 
-import Row from '../row'
-import Column from '../column'
-import Input from '../input'
-import AnimatedResult from '../animated-result'
-
-const Tool = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin: 1rem 0;
-`
+import Form from '../form/form'
+import Row from '../container/row'
+import Column from '../container/column'
+import Input from '../form/input'
+import AnimatedResult from '../form/animated-result'
 
 const ButtonWrapper = styled.div`
   width: 100%;
@@ -78,7 +72,7 @@ const BaseValueChange = () => {
   useEffect(handleChangeResult)
 
   return (
-    <Tool
+    <Form
       onChange={(e) => {
         e.preventDefault()
         handleChangeResult()
@@ -120,7 +114,7 @@ const BaseValueChange = () => {
           <AnimatedResult value={result} formatValue={formatValue} />
         </Column>
       </Row>
-    </Tool>
+    </Form>
   )
 }
 

@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Trans, useTranslation } from 'react-i18next'
 
 import Layout from '../components/layout'
-import Row from '../components/row'
-import Column from '../components/column'
+import Row from '../components/container/row'
+import Column from '../components/container/column'
 
 const design_video = [
   'Adobe XD',

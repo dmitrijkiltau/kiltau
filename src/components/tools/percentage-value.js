@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 
-import Row from '../row'
-import Column from '../column'
-import Input from '../input'
-import AnimatedResult from '../animated-result'
-
-const Tool = styled.form`
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`
+import Form from '../form/form'
+import Row from '../container/row'
+import Column from '../container/column'
+import Input from '../form/input'
+import AnimatedResult from '../form/animated-result'
 
 const PercentageValue = () => {
   const [percentage, setPercentage] = useState(25)
@@ -34,7 +27,7 @@ const PercentageValue = () => {
   useEffect(handleChangeResult)
 
   return (
-    <Tool
+    <Form
       onChange={(e) => {
         e.preventDefault()
         handleChangeResult()
@@ -72,7 +65,7 @@ const PercentageValue = () => {
           <AnimatedResult value={result} formatValue={formatValue} />
         </Column>
       </Row>
-    </Tool>
+    </Form>
   )
 }
 

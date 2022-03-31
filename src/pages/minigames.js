@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { useTranslation } from 'react-i18next'
+
 import Layout from '../components/layout'
 
 const MinigamesPage = ({ location }) => {
