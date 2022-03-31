@@ -1,6 +1,27 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Work Sans';
+    src: url(../fonts/WorkSans-Regular.woff2);
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Work Sans';
+    src: url(../fonts/WorkSans-Medium.woff2);
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Work Sans';
+    src: url(../fonts/WorkSans-Bold.woff2);
+    font-weight: 600;
+    font-display: swap;
+  }
+
   :root {
     --color-primary: hsl(0deg 0% 0%);
     --color-primary-96: hsl(0deg 0% 4%);
