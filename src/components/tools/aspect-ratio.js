@@ -94,7 +94,7 @@ const AspectRatio = () => {
         title: 'Ratio width',
         value: ratioWidth,
         onChange:
-          calculatePixel &&
+          calculatePixel ?
           (({ target: { value } }) => {
             const newRatioWidth = parseFloat(value) || value
 
@@ -103,7 +103,7 @@ const AspectRatio = () => {
               getPixelHeight(pixelWidth, ratioHeight, newRatioWidth)
             )
             setSelectedPreset(findPreset('custom'))
-          }),
+          }) : undefined,
         disabled: calculatePixel === false ? true : false,
       },
       {
@@ -111,7 +111,7 @@ const AspectRatio = () => {
         title: 'Ratio height',
         value: ratioHeight,
         onChange:
-          calculatePixel &&
+          calculatePixel ?
           (({ target: { value } }) => {
             const newRatioHeight = parseFloat(value) || value
 
@@ -120,7 +120,7 @@ const AspectRatio = () => {
               getPixelWidth(pixelHeight, ratioWidth, newRatioHeight)
             )
             setSelectedPreset(findPreset('custom'))
-          }),
+          }) : undefined,
         disabled: calculatePixel === false ? true : false,
       },
     ],
@@ -195,9 +195,7 @@ const AspectRatio = () => {
           <Trans>Ratio</Trans>
           <Switch
             checked={calculatePixel}
-            onClick={() => {
-              setCalculatePixel(!calculatePixel)
-            }}
+            onClick={() => setCalculatePixel(!calculatePixel)}
           />
           <Trans>Pixel</Trans>
         </Column>
