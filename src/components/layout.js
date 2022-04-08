@@ -89,6 +89,7 @@ const Layout = ({ pageTitle, slug, image, children }) => {
         <meta name="copyright" content={author} />
 
         <link rel="canonical" href={siteUrl + slug} />
+        <link rel="preload" href="/fonts/WorkSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={social.twitter.name} />
