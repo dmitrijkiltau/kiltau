@@ -26,7 +26,7 @@ const allTools = [
       },
       {
         name: 'Password',
-        tool: <PasswordGenerator />
+        tool: <PasswordGenerator />,
       },
       {
         name: 'Aspect ratio',

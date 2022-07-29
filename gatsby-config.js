@@ -16,12 +16,12 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
-    {
+    /* {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-43582589-10',
       },
-    },
+    }, */
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
