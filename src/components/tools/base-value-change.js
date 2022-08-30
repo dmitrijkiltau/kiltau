@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 
-import Form from '../form/form'
-import Row from '../container/row'
-import Column from '../container/column'
-import Input from '../form/input'
-import AnimatedResult from '../form/animated-result'
+import { Form, Row, Column, Input, AnimatedResult } from '../components'
 
 const ButtonWrapper = styled.div`
   width: 100%;

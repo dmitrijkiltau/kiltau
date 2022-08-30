@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-import Form from '../form/form'
-import Row from '../container/row'
-import Column from '../container/column'
-import AnimatedResult from '../form/animated-result'
-import Input from '../form/input'
+import { Form, Row, Column, AnimatedResult, Input } from '../components'
 
 const Submit = styled.input`
   width: 100%;

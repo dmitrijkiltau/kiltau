@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Trans } from 'react-i18next'
 
-import Form from '../form/form'
-import Row from '../container/row'
-import Column from '../container/column'
-import Input from '../form/input'
-import AnimatedResult from '../form/animated-result'
+import { Form, Row, Column, Input, AnimatedResult } from '../components'
 
 const PercentageChange = () => {
   const [value1, setValue1] = useState(25)

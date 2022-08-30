@@ -51,7 +51,7 @@ const Header = ({ language }) => {
       </Link>
 
       <StyledSubtitle>
-        <Trans>IT specialist for application development</Trans>
+        <Trans>Web developer</Trans>
       </StyledSubtitle>
     </StyledHeader>
   )

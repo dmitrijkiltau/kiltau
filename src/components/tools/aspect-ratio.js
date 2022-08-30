@@ -3,12 +3,7 @@ import { nanoid } from 'nanoid'
 import { useTranslation } from 'react-i18next'
 import { Trans } from 'react-i18next'
 
-import Form from '../form/form'
-import Row from '../container/row'
-import Column from '../container/column'
-import Container from '../container/container'
-import Switch from '../form/switch'
-import Input from '../form/input'
+import { Form, Row, Column, Container, Switch, Input } from '../components'
 
 const InputContainer = ({ id, title, value, onChange, disabled }) => (
   <Container>
@@ -93,34 +88,34 @@ const AspectRatio = () => {
         id: nanoid(),
         title: 'Ratio width',
         value: ratioWidth,
-        onChange:
-          calculatePixel ?
-          (({ target: { value } }) => {
-            const newRatioWidth = parseFloat(value) || value
+        onChange: calculatePixel
+          ? ({ target: { value } }) => {
+              const newRatioWidth = parseFloat(value) || value
 
-            setRatioWidth(newRatioWidth)
-            setPixelHeight(
-              getPixelHeight(pixelWidth, ratioHeight, newRatioWidth)
-            )
-            setSelectedPreset(findPreset('custom'))
-          }) : undefined,
+              setRatioWidth(newRatioWidth)
+              setPixelHeight(
+                getPixelHeight(pixelWidth, ratioHeight, newRatioWidth)
+              )
+              setSelectedPreset(findPreset('custom'))
+            }
+          : undefined,
         disabled: calculatePixel === false ? true : false,
       },
       {
         id: nanoid(),
         title: 'Ratio height',
         value: ratioHeight,
-        onChange:
-          calculatePixel ?
-          (({ target: { value } }) => {
-            const newRatioHeight = parseFloat(value) || value
+        onChange: calculatePixel
+          ? ({ target: { value } }) => {
+              const newRatioHeight = parseFloat(value) || value
 
-            setRatioHeight(newRatioHeight)
-            setPixelWidth(
-              getPixelWidth(pixelHeight, ratioWidth, newRatioHeight)
-            )
-            setSelectedPreset(findPreset('custom'))
-          }) : undefined,
+              setRatioHeight(newRatioHeight)
+              setPixelWidth(
+                getPixelWidth(pixelHeight, ratioWidth, newRatioHeight)
+              )
+              setSelectedPreset(findPreset('custom'))
+            }
+          : undefined,
         disabled: calculatePixel === false ? true : false,
       },
     ],

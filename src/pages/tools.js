@@ -2,11 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { useTranslation, Trans } from 'react-i18next'
 
-import Layout from '../components/layout'
-import Accordion from '../components/accordion'
-import Row from '../components/container/row'
-import Column from '../components/container/column'
-
 import RandomNumber from '../components/tools/random-number'
 import PasswordGenerator from '../components/tools/password-generator'
 import AspectRatio from '../components/tools/aspect-ratio'
@@ -15,6 +10,9 @@ import Percentage from '../components/tools/percentage'
 import BaseValue from '../components/tools/base-value'
 import PercentageChange from '../components/tools/percentage-change'
 import BaseValueChange from '../components/tools/base-value-change'
+
+import Layout from '../components/layout'
+import { Row, Column, Accordion } from '../components/components'
 
 const allTools = [
   {

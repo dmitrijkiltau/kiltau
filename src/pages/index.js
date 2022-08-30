@@ -5,8 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import Row from '../components/container/row'
-import Column from '../components/container/column'
+import { Row, Column } from '../components/components'
 import Tooltip from '../components/tooltip'
 
 const social = [
@@ -107,8 +106,7 @@ const IndexPage = ({ location, data }) => {
               </Code>
             </Tooltip>{' '}
             <Trans>
-              years old. Professionally, I'm an IT specialist for application
-              development and currently I work at MSCG GmbH.
+              years old. Professionally, I'm a web developer.
             </Trans>
           </Text>
           <Text>

@@ -3,12 +3,7 @@ import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 import { useTranslation } from 'react-i18next'
 
-import Form from '../form/form'
-import Container from '../container/container'
-import Column from '../container/column'
-import Flex from '../container/flex'
-import Input from '../form/input'
-import Switch from '../form/switch'
+import { Form, Container, Column, Flex, Input, Switch } from '../components'
 
 const Submit = styled.input`
   width: 100%;
