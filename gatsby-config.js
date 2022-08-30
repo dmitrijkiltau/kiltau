@@ -47,12 +47,18 @@ module.exports = {
         path: './src/images/',
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'locale',
         path: './src/locales/',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'locale',
+        path: './src/fonts/',
       },
     },
     {
