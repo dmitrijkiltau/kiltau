@@ -6,26 +6,23 @@ import { Trans, useTranslation } from 'react-i18next'
 import Layout from '../components/layout'
 import { Row, Column } from '../components/components'
 
-const design_video = [
-  'Adobe XD',
-  'Adobe Photoshop',
-  'Adobe Premiere',
-  'DaVinci Resolve Studio',
+const columns = [
+  {
+    name: 'design_video',
+    title: 'Design & Video',
+    children: ['Adobe XD', 'Adobe Photoshop', 'Adobe Premiere', 'DaVinci Resolve Studio']
+  },
+  {
+    name: 'web_development',
+    title: 'Web development',
+    children: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Gatsby.js', 'Tailwind CSS', 'PHP', 'NEOS CMS', 'WordPress', 'MySQL', 'JSON']
+  },
+  {
+    name: 'app_development',
+    title: 'App development',
+    children: ['Flutter', 'Dart', 'Kotlin', 'Java']
+  }
 ]
-
-const web_development = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'React.js',
-  'Gatsby.js',
-  'PHP',
-  'WordPress',
-  'MySQL',
-  'JSON',
-]
-
-const app_development = ['Flutter', 'Dart', 'Kotlin', 'Java']
 
 const List = styled.ul`
   list-style: none;
@@ -38,36 +35,15 @@ const SkillsPage = ({ location }) => {
   return (
     <Layout pageTitle={t('Skills')} slug={location.pathname}>
       <Row>
-        <Column lg={3} md={4} sm={6}>
-          <h2>Design & Video</h2>
-          <List>
-            {design_video.map((item, index) => (
-              <li key={'design_video-' + index}>{item}</li>
-            ))}
-          </List>
-        </Column>
-
-        <Column lg={3} md={4} sm={6}>
+        {columns.map((col, i) => <Column lg={3} md={4} sm={6} key={col.name + '-' + i}>
           <h2>
-            <Trans>Web development</Trans>
+            <Trans>{col.title}</Trans>
           </h2>
-          <List>
-            {web_development.map((item, index) => (
-              <li key={'web_development-' + index}>{item}</li>
-            ))}
-          </List>
-        </Column>
 
-        <Column lg={3} md={4} sm={6}>
-          <h2>
-            <Trans>App development</Trans>
-          </h2>
           <List>
-            {app_development.map((item, index) => (
-              <li key={'app_development-' + index}>{item}</li>
-            ))}
+            {col.children.map((child, j) => <li key={col.name + '-' + i + '-' + j}>{child}</li>)}
           </List>
-        </Column>
+        </Column>)}
 
         <Column lg={3} md={12} sm={6}>
           <h2>Social</h2>
