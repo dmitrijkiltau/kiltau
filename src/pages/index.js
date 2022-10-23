@@ -106,7 +106,7 @@ const IndexPage = ({ location, data }) => {
               </Code>
             </Tooltip>{' '}
             <Trans>
-              years old. Professionally, I'm a web developer.
+              years old. Professionally, I'm a frontend developer.
             </Trans>
           </Text>
           <Text>
