@@ -1,6 +1,6 @@
 {
   "menu": {
-    "about": "About",
+    "hero": "About",
     "tools": "Tools",
     "skills": "Skills"
   },
@@ -30,7 +30,7 @@
   "footer": {
     "sitemap": {
       "title": "Sitemap",
-      "about": "About",
+      "hero": "About",
       "tools": "Tools",
       "skills": "Skills"
     },

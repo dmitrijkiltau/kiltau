@@ -9,14 +9,8 @@ export const useSiteMetadata = () => {
           description
           siteUrl
           twitterUsername
-          mainMenu {
-            path
-            name
-          }
-          footerMenu {
-            path
-            name
-          }
+          mainMenu
+          footerMenu
           social {
             twitter {
               title

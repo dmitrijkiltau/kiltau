@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { useTranslation, Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
-import { Link } from 'gatsby'
 
 export const Header = () => {
   const { t } = useTranslation()
+  const { language } = useI18next()
   const { title: defaultTitle, mainMenu } = useSiteMetadata()
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export const Header = () => {
         </div>
 
         <nav>
-          {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={item.path}>{t(`menu.${item.name}`)}</Link>)}
+          {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={`/#${item}`}>{t(`menu.${item}`)}</Link>)}
         </nav>
       </div>
     </header>

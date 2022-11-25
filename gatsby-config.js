@@ -5,15 +5,8 @@ module.exports = {
     author: 'Dmitrij Kiltau',
     siteUrl: 'https://kiltau.com',
     twitterUsername: 'einfachdima',
-    mainMenu: [
-      { path: '/#hero', name: 'about' },
-      { path: '/#tools', name: 'tools' },
-      { path: '/#skills', name: 'skills' },
-    ],
-    footerMenu: [
-      { path: '/imprint', name: 'imprint' },
-      { path: '/privacy', name: 'privacy' }
-    ],
+    mainMenu: ['hero', 'tools', 'skills'],
+    footerMenu: ['imprint', 'privacy'],
     social: {
       twitter: {
         title: 'Twitter',

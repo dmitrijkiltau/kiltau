@@ -19,7 +19,7 @@ export const Footer = () => {
           <h3>{t('footer.sitemap.title')}</h3>
 
           <nav>
-            {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={item.path}>{t(`footer.sitemap.${item.name}`)}</Link>)}
+            {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={`/#${item}`}>{t(`footer.sitemap.${item}`)}</Link>)}
           </nav>
         </div>
 
@@ -63,19 +63,11 @@ export const Footer = () => {
           <small>&copy; {(new Date()).getFullYear()} <Link to="/">Dmitrij Kiltau</Link>.</small>
 
           <small>
-            {languages.map((lng) => {
-              return (
-                lng !== language && (
-                  <Link to={originalPath} language={lng} key={lng}>
-                    {lng}
-                  </Link>
-                )
-              )
-            })}
+            {languages.map((lng) => (lng !== language && <Link to={originalPath} language={lng} key={lng}>{lng}</Link>))}
           </small>
 
           <nav id="footer-privacy">
-            {footerMenu.map((item, index) => <Link key={`footer-menu-${index}`} to={item.path}>{t(`footer.legal.${item.name}`)}</Link>)}
+            {footerMenu.map((item, index) => <Link key={`footer-menu-${index}`} to={`/${item}`}>{t(`footer.legal.${item}`)}</Link>)}
           </nav>
         </div>
       </div>
