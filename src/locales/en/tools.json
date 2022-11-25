@@ -1,35 +1,104 @@
 {
-    "General": "General",
-    "Random number": "Random number",
-    "Password": "Password",
-    "Date": "Date",
-    "Aspect ratio": "Aspect ratio",
-    "Percentage calculation": "Percentage calculation",
-    "Percentage value": "Percentage value",
-    "Percentage": "Percentage",
-    "Base value": "Base value",
-    "Percentage change": "Percentage change",
-    "Base value change": "Base value change",
-    "Generate": "Generate",
-    "Length": "Length",
-    "Lowercase letters": "Lowercase letters",
-    "Uppercase letters": "Uppercase letters",
-    "Numbers": "Numbers",
-    "Special characters": "Special characters",
-    "of": "of",
-    "is": "is",
-    "to": "to",
-    "a change": "a change",
-    "a decrease": "a decrease",
-    "an increase": "an increase",
-    "Ratio": "Ratio",
-    "Presets": "Presets",
-    "Custom": "Custom",
-    "Classic 4:3": "Classic 4:3",
-    "Classic Film 3:2": "Classic Film 3:2",
-    "Cinemascope 21:9": "Cinemascope 21:9",
-    "Ratio width": "Ratio width",
-    "Ratio height": "Ratio height",
-    "Pixel width": "Pixel width",
-    "Pixel height": "Pixel height"
+  "tools": {
+    "title": "Tools",
+    "description": "Different tools you can use. The source code for the tools and the website can be found on Github.",
+
+    "randomNumberGenerator": {
+      "title": "Random Number Generator",
+      "description": "A random number generator is a process that generates a sequence of random numbers.",
+      "min": "Min.",
+      "max": "Max.",
+      "submit": "Generate"
+    },
+
+    "aspectRatioCalculator": {
+      "title": "Aspect Ratio Calculator",
+      "description": "The aspect ratio of an image is the ratio of its width to its height, and is expressed with two numbers separated by a colon, such as 16:9, sixteen-to-nine.",
+      "tabs": {
+        "ratio": "Ratio",
+        "pixel": "Pixel"
+      },
+      "preset": {
+        "title": "Preset",
+        "custom": "Custom",
+        "hd": "HD 16:9",
+        "classic": "Classic 4:3",
+        "classicFilm": "Classic Film 3:2",
+        "cinemascope": "Cinemascope 21:9"
+      },
+      "ratio": {
+        "width": "Ratio Width",
+        "height": "Ratio Height"
+      },
+      "pixel": {
+        "width": "Pixel Width",
+        "height": "Pixel Height"
+      }
+    },
+
+    "passwordGenerator": {
+      "title": "Password Generator",
+      "description": "The password generator creates random passwords based on parameters set by you.",
+      "length": "Length",
+      "custom": "Custom Characters",
+      "lowercase": "Lowercase Letters",
+      "uppercase": "Uppercase Letters",
+      "numbers": "Numbers",
+      "special": "Special Characters",
+      "submit": "Generate"
+    },
+
+    "percentageCalculator": {
+      "title": "Percentage Calculator",
+
+      "select": {
+        "value": "Value",
+        "percentage": "Percentage",
+        "baseValue": "Base Value",
+        "percentageChange": "Percentage Change",
+        "baseValueChange": "Base Value Change"
+      },
+
+      "value": {
+        "title": "Value",
+        "description": "The result of multiplying the percentage and the base value divided by 100 is the percentage value.",
+        "percentage": "Is",
+        "value": "Of"
+      },
+
+      "percentage": {
+        "title": "Percentage",
+        "description": "The percentage is obtained by dividing the percentage value by the base value and then multiplying by 100%.",
+        "percentage": "Is",
+        "value": "Of"
+      },
+
+      "baseValue": {
+        "title": "Base Value",
+        "description": "The base value is obtained by dividing the percentage value by the percentage and then multiplying by 100.",
+        "percentage": "Is",
+        "value": ""
+      },
+
+      "percentageChange": {
+        "title": "Percentage Change",
+        "description": "The percentage change equals the change in value divided by the absolute value of the original value, multiplied by 100.",
+        "percentage": "From",
+        "value": "To",
+        "answer": {
+          "increase": "is an increase",
+          "decrease": "is a decrease"
+        }
+      },
+
+      "baseValueChange": {
+        "title": "Base Value Change",
+        "description": "The change in the base value corresponds to the addition, subtraction, multiplication or division of the percentage with the base value.",
+        "percentage": "",
+        "value": ""
+      },
+
+      "submit": "Generate"
+    }
+  }
 }

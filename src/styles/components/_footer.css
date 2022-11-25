@@ -1,0 +1,61 @@
+footer {
+  @apply bg-gunmetal-light text-white;
+
+  p,
+  a {
+    @apply text-gray;
+  }
+
+  small a {
+    @apply text-white;
+  }
+
+  & > .container {
+    @apply grid grid-cols-2 md:grid-cols-12 gap-8;
+    @apply pt-16 pb-8;
+
+    nav {
+      @apply grid gap-1;
+      @apply mt-4;
+    }
+
+    #footer-sitemap {
+      @apply md:col-span-3;
+    }
+
+    #footer-social {
+      @apply md:col-span-5;
+    }
+
+    #footer-apps {
+      @apply col-span-2 md:col-span-4;
+    }
+  }
+
+  #back-to-top {
+    @apply flex justify-center;
+    @apply pb-8;
+    @apply text-gray;
+
+    svg {
+      @apply w-6 h-6;
+    }
+  }
+
+  #footer-bar {
+    @apply py-4;
+    @apply bg-gunmetal;
+
+    & > .container {
+      @apply flex justify-between gap-8;
+
+      nav {
+        @apply flex gap-4;
+
+        & > * {
+          @apply text-xs md:text-sm lg:text-base;
+        }
+      }
+    }
+  }
+}

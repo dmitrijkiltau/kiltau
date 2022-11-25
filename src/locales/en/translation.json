@@ -1,11 +1,50 @@
 {
-  "Homepage": "Homepage",
-  "Skills": "Skills",
-  "Tools": "Tools",
-  "Minigames": "Minigames",
-  "I'm a developer and this is my website.": "I'm a developer and this is my website.",
-  "ERROR 404: Page not found": "ERROR 404: Page not found",
-  "Frontend developer": "Frontend developer",
-  "All rights reserved": "All rights reserved",
-  "Buy me a coffee": "Buy me a coffee"
+  "menu": {
+    "about": "About",
+    "tools": "Tools",
+    "skills": "Skills"
+  },
+
+  "page.description": "I'm a frontend developer and this is my website.",
+
+  "error404": {
+    "title": "ERROR 404: Page not found!",
+    "description": "The page could not be found. Either it was moved or deleted."
+  },
+
+  "imprint.title": "Imprint",
+
+  "privacy.title": "Privacy Policy",
+  
+  "about": {
+    "prepend": "Hey, I'm",
+    "name": "Dima Kiltau",
+    "append": "Frontend Developer"
+  },
+  
+  "skills": {
+    "title": "Skills",
+    "description": "Skills that I have acquired over the years. Be it professionally or privately. Mainly in frontend web development, but also app development, design and editing."
+  },
+
+  "footer": {
+    "sitemap": {
+      "title": "Sitemap",
+      "about": "About",
+      "tools": "Tools",
+      "skills": "Skills"
+    },
+
+    "socialMedia.title": "Social Media",
+
+    "apps": {
+      "title": "Apps",
+      "description": "My published apps"
+    },
+
+    "legal": {
+      "imprint": "Imprint",
+      "privacy": "Privacy"
+    }
+  }
 }

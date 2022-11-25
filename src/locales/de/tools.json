@@ -1,35 +1,104 @@
 {
-    "General": "Allgemein",
-    "Random number": "Zufallszahl",
-    "Password": "Passwort",
-    "Date": "Datum",
-    "Aspect ratio": "Seitenverhältnis",
-    "Percentage calculation": "Prozentrechnung",
-    "Percentage value": "Prozentwert",
-    "Percentage": "Prozentsatz",
-    "Base value": "Grundwert",
-    "Percentage change": "Prozentsatzänderung",
-    "Base value change": "Grundwertänderung",
-    "Generate": "Generieren",
-    "Length": "Länge",
-    "Lowercase letters": "Kleinbuchstaben",
-    "Uppercase letters": "Großbuchstaben",
-    "Numbers": "Zahlen",
-    "Special characters": "Sonderzeichen",
-    "of": "von",
-    "is": "ist",
-    "to": "zu",
-    "a change": "eine Änderung",
-    "a decrease": "eine Abnahme",
-    "an increase": "eine Zunahme",
-    "Ratio": "Verhältnis",
-    "Presets": "Voreinstellungen",
-    "Custom": "Benutzerdefiniert",
-    "Classic 4:3": "Klassisch 4:3",
-    "Classic Film 3:2": "Klassischer Film 3:2",
-    "Cinemascope 21:9": "Cinemascope 21:9",
-    "Ratio width": "Verhältnisbreite",
-    "Ratio height": "Verhältnishöhe",
-    "Pixel width": "Pixelbreite",
-    "Pixel height": "Pixelhöhe"
+  "tools": {
+    "title": "Tools",
+    "description": "Verschiedene Tools, die Du verwenden kannst. Der Quellcode für die Tools und die Website kann auf Github gefunden werden.",
+
+    "randomNumberGenerator": {
+      "title": "Zufallszahlengenerator",
+      "description": "Ein Zufallszahlengenerator ist ein Verfahren, das eine Folge von Zufallszahlen erzeugt.",
+      "min": "Min.",
+      "max": "Max.",
+      "submit": "Generieren"
+    },
+
+    "aspectRatioCalculator": {
+      "title": "Seitenverhältnis-Rechner",
+      "description": "Das Seitenverhältnis eines Bildes ist das Verhältnis seiner Breite zu seiner Höhe und wird durch zwei Zahlen ausgedrückt, die durch einen Doppelpunkt getrennt sind, z. B. 16:9, sechzehn zu neun.",
+      "tabs": {
+        "ratio": "Verhältnis",
+        "pixel": "Pixel"
+      },
+      "preset": {
+        "title": "Voreinstellung",
+        "custom": "Benutzerdefiniert",
+        "hd": "HD 16:9",
+        "classic": "Klassisch 4:3",
+        "classicFilm": "Klassischer Film 3:2",
+        "cinemascope": "Cinemascope 21:9"
+      },
+      "ratio": {
+        "width": "Verhältnis Breite",
+        "height": "Verhältnis Höhe"
+      },
+      "pixel": {
+        "width": "Pixel Breite",
+        "height": "Pixel Höhe"
+      }
+    },
+
+    "passwordGenerator": {
+      "title": "Passwort Generator",
+      "description": "Der Passwortgenerator erstellt zufällige Passwörter auf der Grundlage der von Dir festgelegten Parameter.",
+      "length": "Länge",
+      "custom": "Benutzerdefiniert",
+      "lowercase": "Kleinbuchstaben",
+      "uppercase": "Großbuchstaben",
+      "numbers": "Nummern",
+      "special": "Sonderzeichen",
+      "submit": "Generieren"
+    },
+
+    "percentageCalculator": {
+      "title": "Prozentrechner",
+
+      "select": {
+        "value": "Wert",
+        "percentage": "Prozentsatz",
+        "baseValue": "Basiswert",
+        "percentageChange": "Prozentuale Veränderung",
+        "baseValueChange": "Basiswert Veränderung"
+      },
+
+      "value": {
+        "title": "Wert",
+        "description": "Das Ergebnis der Multiplikation von Prozentsatz und Basiswert geteilt durch 100 ist der Prozentwert.",
+        "percentage": "Ist",
+        "value": "Von"
+      },
+
+      "percentage": {
+        "title": "Prozentsatz",
+        "description": "Der Prozentsatz ergibt sich aus der Division des Prozentwertes durch den Basiswert und der anschließenden Multiplikation mit 100%.",
+        "percentage": "Ist",
+        "value": "Von"
+      },
+
+      "baseValue": {
+        "title": "Basiswert",
+        "description": "Den Basiswert erhält man, indem man den Prozentwert durch den Prozentsatz dividiert und dann mit 100 multipliziert.",
+        "percentage": "Ist",
+        "value": ""
+      },
+
+      "percentageChange": {
+        "title": "Prozentuale Veränderung",
+        "description": "Die prozentuale Veränderung entspricht der Wertveränderung geteilt durch den absoluten Wert des ursprünglichen Wertes, multipliziert mit 100.",
+        "percentage": "Von",
+        "value": "Zu",
+        "answer": {
+          "increase": "ist eine Zunahme",
+          "decrease": "ist eine Abnahme"
+        }
+      },
+
+      "baseValueChange": {
+        "title": "Basiswert Veränderung",
+        "description": "Die Veränderung des Basiswerts entspricht der Addition, Subtraktion, Multiplikation oder Division des Prozentsatzes mit dem Basiswert.",
+        "percentage": "",
+        "value": ""
+      },
+
+      "submit": "Generieren"
+    }
+  }
 }

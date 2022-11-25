@@ -1,0 +1,36 @@
+#hero {
+  @apply relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh];
+
+  & > .container {
+    @apply w-full h-full;
+    @apply flex flex-col items-center justify-center gap-4;
+
+    h1 {
+      @apply max-w-[60%] md:max-w-full break-words;
+      @apply text-5xl md:text-6xl leading-tight font-bold text-center;
+      @apply animate-zoom-in scale-50 opacity-0;
+
+      animation-delay: 500ms;
+      animation-fill-mode: forwards;
+    }
+
+    h4 {
+      @apply md:max-w-[60%] lg:max-w-[50%];
+      @apply text-center;
+      @apply animate-fade-in;
+    }
+
+    .more {
+      @apply absolute left-0 right-0 bottom-16;
+      @apply flex justify-center;
+      @apply animate-fade-in opacity-0;
+      
+      animation-delay: 1.5s;
+      animation-fill-mode: forwards;
+
+      svg {
+        @apply w-6 h-6 animate-bounce;
+      }
+    }
+  }
+}

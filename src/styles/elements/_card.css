@@ -1,0 +1,13 @@
+.card {
+  @apply py-10 rounded-3xl;
+  @apply bg-gunmetal-light text-white;
+  @apply duration-300;
+
+  p {
+    @apply text-gray;
+  }
+
+  & > .container {
+    @apply grid gap-8;
+  }
+}

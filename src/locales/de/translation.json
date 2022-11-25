@@ -1,11 +1,51 @@
 {
-  "Homepage": "Startseite",
-  "Skills": "Skills",
-  "Tools": "Tools",
-  "Minigames": "Minispiele",
-  "I'm a developer and this is my website.": "Ich bin ein Entwickler und das ist meine Website.",
-  "ERROR 404: Page not found": "ERROR 404: Seite nicht gefunden",
-  "Frontend developer": "Frontendentwickler",
-  "All rights reserved": "Alle Rechte vorbehalten",
-  "Buy me a coffee": "Spendiere mir einen Kaffee"
+  "menu": {
+    "about": "Über mich",
+    "tools": "Tools",
+    "skills": "Skills"
+  },
+
+  "page.description": "Ich bin Frontend-Entwickler und dies ist meine Website.",
+
+  "error404": {
+    "title": "ERROR 404: Seite nicht gefunden!",
+    "description": "Die Seite konnte nicht gefunden werden. Entweder wurde sie verschoben oder gelöscht."
+  },
+
+  "imprint.title": "Impressum",
+
+  "privacy.title": "Datenschutzerklärung",
+
+  "about": {
+    "title": "Über mich",
+    "prepend": "Hey, ich bin",
+    "name": "Dima Kiltau",
+    "append": "Frontend-Entwickler"
+  },
+
+  "skills": {
+    "title": "Skills",
+    "description": "Skills, die ich im Laufe der Jahre erworben habe. Sei es beruflich oder privat. Vor allem in der Frontend-Webentwicklung, aber auch in der App-Entwicklung, im Design und im Editing."
+  },
+
+  "footer": {
+    "sitemap": {
+      "title": "Sitemap",
+      "about": "Über mich",
+      "tools": "Tools",
+      "skills": "Skills"
+    },
+
+    "socialMedia.title": "Social Media",
+
+    "apps": {
+      "title": "Apps",
+      "description": "Meine veröffentlichten Apps"
+    },
+
+    "legal": {
+      "imprint": "Impressum",
+      "privacy": "Datenschutz"
+    }
+  }
 }

@@ -1,0 +1,27 @@
+#percentage-calculator {
+  @apply sm:col-span-2 md:col-span-1;
+
+    .content {
+      @apply grid gap-8 items-start;
+
+      .answer {
+        @apply text-white text-center;
+      }
+
+      .buttons {
+        @apply grid grid-cols-4;
+
+        input[type="button"] {
+          @apply rounded-none;
+
+          &:first-child {
+            @apply rounded-l-2xl;
+          }
+
+          &:last-child {
+            @apply rounded-r-2xl;
+          }
+        }
+      }
+  }
+}

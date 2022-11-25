@@ -1,0 +1,16 @@
+@import "/tools/_aspect-ratio";
+@import "/tools/_random-number";
+@import "/tools/_password";
+@import "/tools/_percentage";
+
+#tools {
+  @apply bg-gray-light;
+
+  & > .container {
+    @apply grid gap-8;
+
+    & > .container {
+      @apply grid auto-rows-auto grid-flow-dense grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 items-start gap-8 px-0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+#skills {
+  & > .container {
+    @apply grid gap-8;
+    
+    .cloud {
+      @apply text-center;
+
+      span {
+        @apply inline-block p-4 m-2 md:m-4;
+        @apply rounded-full bg-gray-light;
+      }
+    }
+  }
+}

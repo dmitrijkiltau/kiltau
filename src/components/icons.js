@@ -1,6 +1,0 @@
-export { default as IconHome } from '../icons/home.svg'
-export { default as IconCode } from '../icons/code.svg'
-export { default as IconToolbox } from '../icons/toolbox.svg'
-export { default as IconGamepad } from '../icons/gamepad.svg'
-export { default as IconCopyright } from '../icons/copyright.svg'
-export { default as IconCaretRight } from '../icons/caret-right.svg'

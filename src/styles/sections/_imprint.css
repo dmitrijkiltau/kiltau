@@ -1,0 +1,7 @@
+#imprint {
+  @apply bg-gray-light;
+
+  .container {
+    @apply grid gap-8;
+  }
+}

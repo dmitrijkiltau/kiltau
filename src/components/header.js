@@ -1,60 +1,37 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Trans } from 'react-i18next'
+import React, { useEffect } from 'react'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { Link } from 'gatsby'
 
-const StyledHeader = styled.header`
-  min-height: 8em;
-  grid-area: header;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 4px 0 var(--color-primary-50);
-`
+export const Header = () => {
+  const { t } = useTranslation()
+  const { title: defaultTitle, mainMenu } = useSiteMetadata()
 
-const StyledLogo = styled.h1`
-  margin: 0;
-  font-size: 3em;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--color-primary-96);
+  useEffect(() => {
+    const header = document.querySelector('header')
+    if (!header) return
 
-  @media (max-width: 61rem) {
-    font-size: 2.25em;
-  }
+    const resizeObserver = new ResizeObserver(entries => {
+      if (entries[0].target !== header) return;
+      document.documentElement.style.setProperty('scroll-padding-top', `${header.clientHeight}px`)
+    })
 
-  @media (max-width: 36rem) {
-    font-size: 1.5em;
-  }
-`
+    resizeObserver.observe(header)
+  }, [])
 
-const StyledSubtitle = styled.p`
-  margin: 0;
-  font-size: 1.5em;
-  text-align: end;
-  color: var(--color-primary-80);
-
-  @media (max-width: 61rem) {
-    font-size: 1.25em;
-  }
-
-  @media (max-width: 36rem) {
-    font-size: 1em;
-  }
-`
-
-const Header = ({ language }) => {
   return (
-    <StyledHeader>
-      <Link to={language === 'de' ? '/de/' : '/'}>
-        <StyledLogo>Kiltau</StyledLogo>
-      </Link>
+    <header>
+      <div className="container">
+        <div id="logo">
+          <Link to="/">
+            <h2 className="font-bold">{defaultTitle.toUpperCase()}</h2>
+          </Link>
+        </div>
 
-      <StyledSubtitle>
-        <Trans>Frontend developer</Trans>
-      </StyledSubtitle>
-    </StyledHeader>
+        <nav>
+          {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={item.path}>{t(`menu.${item.name}`)}</Link>)}
+        </nav>
+      </div>
+    </header>
   )
 }
-
-export default Header

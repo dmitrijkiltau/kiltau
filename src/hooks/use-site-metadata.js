@@ -1,28 +1,68 @@
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from "gatsby"
 
-const useSiteMetadata = () => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-            social {
-              twitter {
-                page
-                name
-              }
+export const useSiteMetadata = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          twitterUsername
+          mainMenu {
+            path
+            name
+          }
+          footerMenu {
+            path
+            name
+          }
+          social {
+            twitter {
+              title
+              name
+              url
+            }
+            instagram {
+              title
+              name
+              url
+            }
+            facebook {
+              title
+              name
+              url
+            }
+            quora {
+              title
+              name
+              url
+            }
+            github {
+              title
+              name
+              url
+            }
+            linkedin {
+              title
+              name
+              url
+            }
+            xing {
+              title
+              name
+              url
+            }
+            paypal {
+              title
+              name
+              url
             }
           }
         }
       }
-    `
-  )
+    }
+  `)
 
-  return site.siteMetadata
+  return data.site.siteMetadata
 }
-
-export default useSiteMetadata

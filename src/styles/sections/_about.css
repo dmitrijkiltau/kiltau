@@ -1,0 +1,44 @@
+#hero.about {
+  @apply h-[60vh] md:h-screen;
+  @apply flex items-center justify-center;
+
+  & > .container {
+    @apply h-auto;
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-0;
+
+    div {
+      @apply flex;
+
+      h1 {
+        @apply max-w-none;
+        @apply leading-tight text-6xl md:text-[6rem] lg:text-[8rem];
+      }
+
+      h4 {
+        @apply max-w-none;
+        @apply leading-tight text-xl md:text-3xl lg:text-4xl text-gray font-semibold whitespace-nowrap;
+      }
+
+      &:first-child {
+        @apply justify-center sm:justify-end;
+        @apply animate-fade-in-right;
+
+      }
+
+      &:nth-child(2) {
+        @apply sm:col-span-2;
+        @apply justify-center;
+        @apply animate-zoom-in scale-50 opacity-0;
+
+        animation-delay: 500ms;
+        animation-fill-mode: forwards;
+      }
+
+      &:nth-child(3) {
+        @apply sm:col-start-2;
+        @apply justify-center sm:justify-start;
+        @apply animate-fade-in-left;
+      }
+    }
+  }
+}
