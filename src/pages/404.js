@@ -7,15 +7,13 @@ import { Hero } from '../elements/hero'
 
 const NotFoundPage = () => {
   const { t } = useTranslation()
-  
-  return (
-    <Layout>
-      <Hero>
-        <h1>{t('error404.title')}</h1>
-        <h4>{t('error404.description')}</h4>
-      </Hero>
-    </Layout>
-  )
+
+  return <Layout>
+    <Hero>
+      <h1>{t('error404.title')}</h1>
+      <h4>{t('error404.description')}</h4>
+    </Hero>
+  </Layout>
 }
 
 export const query = graphql`

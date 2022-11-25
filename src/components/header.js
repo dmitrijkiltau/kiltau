@@ -18,19 +18,17 @@ export const Header = () => {
     resizeObserver.observe(header)
   }, [])
 
-  return (
-    <header>
-      <div className="container">
-        <div id="logo">
-          <Link to="/">
-            <h2 className="font-bold">{defaultTitle.toUpperCase()}</h2>
-          </Link>
-        </div>
-
-        <nav>
-          {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={`/#${item}`}>{t(`menu.${item}`)}</Link>)}
-        </nav>
+  return <header>
+    <div className="container">
+      <div id="logo">
+        <Link to="/">
+          <h2 className="font-bold">{defaultTitle.toUpperCase()}</h2>
+        </Link>
       </div>
-    </header>
-  )
+
+      <nav>
+        {mainMenu.map((item, index) => <Link key={`menu-${index}`} to={`/#${item}`}>{t(`menu.${item}`)}</Link>)}
+      </nav>
+    </div>
+  </header>
 }

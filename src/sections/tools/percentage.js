@@ -108,71 +108,69 @@ export const Percentage = ({ byN }) => {
   const percentageLabel = t(`tools.percentageCalculator.${n}.percentage`)
   const valueLabel = t(`tools.percentageCalculator.${n}.value`)
 
-  return (
-    <Accordion
-      id="percentage-calculator"
-      icon={
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512" className="icon">
-          <path fill="currentColor" d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128c0-35.3-28.7-64-64-64S0 92.7 0 128s28.7 64 64 64s64-28.7 64-64zM384 384c0-35.3-28.7-64-64-64s-64 28.7-64 64s28.7 64 64 64s64-28.7 64-64z" />
-        </svg>
-      }
-      title={t('tools.percentageCalculator.title')}
-      description={t(`tools.percentageCalculator.${n}.description`)}
-    >
-      <form onChange={handleChangeResult} onSubmit={handleChangeResult}>
-        <select className="types-select" value={n} onChange={({ target: { value } }) => setN(value)}>
-          {Object.keys(content).map((typeN, index) => (
-            <option key={`type-${index}`} value={typeN}>{t(`tools.percentageCalculator.${typeN}.title`)}</option>
-          ))}
-        </select>
+  return <Accordion
+    id="percentage-calculator"
+    icon={
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512" className="icon">
+        <path fill="currentColor" d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128c0-35.3-28.7-64-64-64S0 92.7 0 128s28.7 64 64 64s64-28.7 64-64zM384 384c0-35.3-28.7-64-64-64s-64 28.7-64 64s28.7 64 64 64s64-28.7 64-64z" />
+      </svg>
+    }
+    title={t('tools.percentageCalculator.title')}
+    description={t(`tools.percentageCalculator.${n}.description`)}
+  >
+    <form onChange={handleChangeResult} onSubmit={handleChangeResult}>
+      <select className="types-select" value={n} onChange={({ target: { value } }) => setN(value)}>
+        {Object.keys(content).map((typeN, index) => (
+          <option key={`type-${index}`} value={typeN}>{t(`tools.percentageCalculator.${typeN}.title`)}</option>
+        ))}
+      </select>
 
-        <AnimatedNumber
-          className="result"
-          component="span"
-          id="percentage-result"
-          value={result ?? 0}
-          duration={300}
-          formatValue={formatResult}
-        />
+      <AnimatedNumber
+        className="result"
+        component="span"
+        id="percentage-result"
+        value={result ?? 0}
+        duration={300}
+        formatValue={formatResult}
+      />
 
-        {n === 'percentageChange' && <span className="answer animate-fade-in-down-grow">{answer}</span>}
+      {n === 'percentageChange' && <span className="answer animate-fade-in-down-grow">{answer}</span>}
 
-        {n === 'baseValueChange' && <div className="buttons">
-          {['+', '−', '×', '÷'].map((item, index) => <input
-            type="button"
-            value={item}
-            data-active={operation === item || undefined}
-            onClick={handleChangeOperation}
-            key={'operation-' + index}
-          />)}
-        </div>}
+      {n === 'baseValueChange' && <div className="buttons">
+        {['+', '−', '×', '÷'].map((item, index) => <input
+          type="button"
+          value={item}
+          data-active={operation === item || undefined}
+          onClick={handleChangeOperation}
+          key={'operation-' + index}
+        />)}
+      </div>}
 
-        <div className="grid grid-cols-2 gap-8">
-          <div className="mt-auto">
-            {percentageLabel && <label htmlFor="percentage">{percentageLabel}</label>}
+      <div className="grid grid-cols-2 gap-8">
+        <div className="mt-auto">
+          {percentageLabel && <label htmlFor="percentage">{percentageLabel}</label>}
 
-            <Input
-              type="number"
-              id="percentage"
-              value={percentage}
-              onChange={handleChangePercentage}
-              prepend={type.percentagePrepend || undefined}
-              append={type.percentageAppend || undefined} />
-          </div>
-
-          <div className={`mt-auto${['Base Value', 'Base Value Change'].includes(n) ? ' row-start-1 col-start-1' : ''}`}>
-            {valueLabel && <label htmlFor="percentage-value">{valueLabel}</label>}
-
-            <Input
-              type="number"
-              id="percentage-value"
-              value={value}
-              onChange={handleChangeValue}
-              prepend={type.valuePrepend || undefined}
-              append={type.valueAppend || undefined} />
-          </div>
+          <Input
+            type="number"
+            id="percentage"
+            value={percentage}
+            onChange={handleChangePercentage}
+            prepend={type.percentagePrepend || undefined}
+            append={type.percentageAppend || undefined} />
         </div>
-      </form>
-    </Accordion>
-  )
+
+        <div className={`mt-auto${['Base Value', 'Base Value Change'].includes(n) ? ' row-start-1 col-start-1' : ''}`}>
+          {valueLabel && <label htmlFor="percentage-value">{valueLabel}</label>}
+
+          <Input
+            type="number"
+            id="percentage-value"
+            value={value}
+            onChange={handleChangeValue}
+            prepend={type.valuePrepend || undefined}
+            append={type.valueAppend || undefined} />
+        </div>
+      </div>
+    </form>
+  </Accordion>
 }

@@ -29,18 +29,16 @@ export const Skills = () => {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  return (
-    <Section id="skills">
-      <h2>{t('skills.title')}</h2>
+  return <Section id="skills">
+    <h2>{t('skills.title')}</h2>
 
-      <p className="description">{t('skills.description')}</p>
+    <p className="description">{t('skills.description')}</p>
 
-      <div className="cloud">
-        {skills.map((skill, index) => ([
-          <span key={`skill-${index}`}>{skill}</span>,
-          lineBreaks.includes(index) && <br key={`br-${index}`} />
-        ]))}
-      </div>
-    </Section>
-  )
+    <div className="cloud">
+      {skills.map((skill, index) => ([
+        <span key={`skill-${index}`}>{skill}</span>,
+        lineBreaks.includes(index) && <br key={`br-${index}`} />
+      ]))}
+    </div>
+  </Section>
 }

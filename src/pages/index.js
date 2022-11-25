@@ -7,13 +7,11 @@ import { Tools } from '../sections/tools'
 import { Skills } from '../sections/skills'
 
 const IndexPage = () => {
-  return (
-    <Layout title="Homepage">
-      <About />
-      <Tools />
-      <Skills />
-    </Layout>
-  )
+  return <Layout title="Homepage">
+    <About />
+    <Tools />
+    <Skills />
+  </Layout>
 }
 
 export const query = graphql`
