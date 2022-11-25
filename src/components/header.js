@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { useTranslation, Link, useI18next } from 'gatsby-plugin-react-i18next'
+import { useTranslation, Link } from 'gatsby-plugin-react-i18next'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
 
 export const Header = () => {
   const { t } = useTranslation()
-  const { language } = useI18next()
   const { title: defaultTitle, mainMenu } = useSiteMetadata()
 
   useEffect(() => {
