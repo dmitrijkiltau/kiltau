@@ -12,7 +12,17 @@ footer {
 
   & > .container {
     @apply grid grid-cols-2 md:grid-cols-12 gap-8;
-    @apply pt-16 pb-8;
+    @apply pt-16 pb-12;
+
+    #back-to-top {
+      @apply col-start-1 col-span-2 md:col-span-12;
+      @apply flex justify-center;
+      @apply text-gray;
+
+      svg {
+        @apply w-6 h-6;
+      }
+    }
 
     nav {
       @apply grid gap-1;
@@ -32,13 +42,12 @@ footer {
     }
   }
 
-  #back-to-top {
-    @apply flex justify-center;
-    @apply pb-8;
-    @apply text-gray;
+  #footer-languages {
+    @apply flex justify-center pb-12;
 
-    svg {
-      @apply w-6 h-6;
+    a {
+      @apply block w-12 h-12 rounded-full bg-gunmetal;
+      @apply flex items-center justify-center;
     }
   }
 
@@ -53,7 +62,7 @@ footer {
         @apply flex gap-4;
 
         & > * {
-          @apply text-xs md:text-sm lg:text-base;
+          @apply text-sm lg:text-base;
         }
       }
     }

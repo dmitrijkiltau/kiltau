@@ -14,6 +14,14 @@ export const Footer = () => {
 
   return <footer>
     <div className="container">
+      <div id="back-to-top">
+        <Link to="#hero">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+          </svg>
+        </Link>
+      </div>
+
       <div id="footer-sitemap">
         <h3>{t('footer.sitemap.title')}</h3>
 
@@ -49,21 +57,13 @@ export const Footer = () => {
       </div>
     </div>
 
-    <div id="back-to-top">
-      <Link to="#hero">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <path fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
-        </svg>
-      </Link>
+    <div id="footer-languages">
+      {languages.map((lng) => (lng !== language && <Link to={originalPath} language={lng} key={lng}>{lng}</Link>))}
     </div>
 
     <div id="footer-bar">
       <div className="container">
         <small>&copy; {(new Date()).getFullYear()} <Link to="/">Dmitrij Kiltau</Link>.</small>
-
-        <small>
-          {languages.map((lng) => (lng !== language && <Link to={originalPath} language={lng} key={lng}>{lng}</Link>))}
-        </small>
 
         <nav id="footer-privacy">
           {footerMenu.map((item, index) => <Link key={`footer-menu-${index}`} to={`/${item}`}>{t(`footer.legal.${item}`)}</Link>)}

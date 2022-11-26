@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Assistant";
-  src: url("/fonts/Assistant.woff2") format("woff2-variations");
+  font-family: 'Assistant';
+  src: url('/fonts/Assistant.woff2') format('woff2-variations');
   font-weight: 200 800;
   font-display: swap;
 }
@@ -28,195 +28,193 @@ body {
   }
 }
 
-@layer base {
-  h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
-  }
+h1 {
+  @apply text-3xl md:text-4xl lg:text-5xl;
+}
 
-  h2 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
-  }
+h2 {
+  @apply text-2xl md:text-3xl lg:text-4xl;
+}
 
-  h3 {
-    @apply text-xl md:text-2xl lg:text-3xl;
-  }
+h3 {
+  @apply text-xl md:text-2xl lg:text-3xl;
+}
 
-  h4 {
-    @apply text-base md:text-lg lg:text-2xl;
-  }
+h4 {
+  @apply text-base md:text-lg lg:text-2xl;
+}
 
-  h5 {
-    @apply text-sm md:text-base lg:text-lg;
-  }
+h5 {
+  @apply text-sm md:text-base lg:text-lg;
+}
 
-  h6 {
+h6 {
+  @apply text-xs md:text-sm lg:text-base;
+}
+
+p,
+span,
+a {
+  @apply lg:text-lg;
+  @apply text-gunmetal-light;
+}
+
+a {
+  @apply duration-300;
+
+  &:hover,
+  &:focus {
+    @apply text-gold;
+  }
+}
+
+small {
+  @apply text-xs md:text-sm lg:text-base;
+
+  & > * {
     @apply text-xs md:text-sm lg:text-base;
   }
+}
 
-  p,
-  span,
-  a {
-    @apply lg:text-lg;
-    @apply text-gunmetal-light;
+ul {
+  @apply pl-4;
+
+  li {
+    @apply list-disc;
+  }
+}
+
+.description {
+  @apply lg:max-w-[28rem];
+}
+
+form {
+  @apply grid gap-8;
+
+  label {
+    @apply block mb-2;
   }
 
-  a {
-    @apply duration-300;
+  .input,
+  input,
+  select {
+    @apply w-full px-6 py-3;
+    @apply bg-white text-gunmetal text-lg;
+    @apply rounded-2xl border-2 border-solid border-gunmetal/10;
+  }
+
+  .input {
+    @apply relative p-0;
+    @apply border-none;
+
+    &:before,
+    &:after {
+      @apply absolute top-[50%] -translate-y-[50%];
+    }
+
+    &[data-prepend] {
+      &:before {
+        @apply content-[attr(data-prepend)] left-6;
+      }
+
+      & > input {
+        @apply pl-16;
+      }
+    }
+
+    &[data-append] {
+      &:after {
+        @apply content-[attr(data-append)] right-6;
+      }
+
+      & > input {
+        @apply pr-8;
+      }
+    }
+  }
+
+  select {
+    @apply appearance-none bg-no-repeat;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23232830' d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' /%3E%3C/svg%3E");
+    background-position: center right 1rem;
+    background-size: 1.25rem;
+  }
+
+  .result {
+    @apply relative block w-full h-auto py-8 lg:py-12 px-8 overflow-hidden break-all z-10;
+    @apply bg-gunmetal rounded-2xl border-2 border-solid border-gold;
+    @apply text-white text-center text-xl sm:text-4xl leading-relaxed font-bold;
+
+    &:before,
+    &:after {
+      @apply absolute top-[50%] -translate-y-[50%];
+    }
+
+    &[data-prepend] {
+      &:before {
+        @apply content-[attr(data-prepend)] left-6;
+      }
+
+      & > input {
+        @apply pl-16;
+      }
+    }
+
+    &[data-append] {
+      &:after {
+        @apply content-[attr(data-append)] right-6;
+      }
+
+      & > input {
+        @apply pr-8;
+      }
+    }
+  }
+}
+
+button,
+input[type='button'],
+input[type='submit'] {
+  @apply w-full px-6 py-3 rounded-2xl z-10;
+  @apply bg-gunmetal text-white text-lg;
+  @apply border-2 border-gunmetal;
+  @apply duration-500 cursor-pointer;
+
+  &:hover,
+  &:focus,
+  &[data-active] {
+    @apply !bg-gold border-gunmetal/10;
+    @apply text-gunmetal font-bold;
+  }
+}
+
+.tabs {
+  @apply relative flex z-10;
+  @apply bg-gunmetal rounded-2xl;
+
+  &:before {
+    @apply content-[''] rounded-2xl z-10;
+    @apply w-[50%] h-full bg-gold;
+    @apply border-2 border-solid border-gunmetal/10;
+    @apply absolute top-0 left-0;
+    @apply duration-500;
+  }
+
+  &[data-active]:before {
+    @apply left-[50%];
+  }
+
+  input[type='button'] {
+    @apply bg-[transparent] text-gray border-none z-20;
 
     &:hover,
     &:focus {
-      @apply text-gold;
-    }
-  }
-
-  small {
-    @apply text-xs md:text-sm lg:text-base;
-
-    & > * {
-      @apply text-xs md:text-sm lg:text-base;
-    }
-  }
-
-  ul {
-    @apply pl-4;
-
-    li {
-      @apply list-disc;
-    }
-  }
-
-  .description {
-    @apply lg:max-w-[28rem];
-  }
-
-  form {
-    @apply grid gap-8;
-
-    label {
-      @apply block mb-2;
+      @apply !bg-[transparent] text-white font-normal;
     }
 
-    .input,
-    input,
-    select {
-      @apply w-full px-6 py-3;
-      @apply bg-white text-gunmetal text-lg;
-      @apply rounded-2xl border-2 border-solid border-gunmetal/10;
-    }
-
-    .input {
-      @apply relative p-0;
-      @apply border-none;
-
-      &:before,
-      &:after {
-        @apply absolute top-[50%] -translate-y-[50%];
-      }
-
-      &[data-prepend] {
-        &:before {
-          @apply content-[attr(data-prepend)] left-6;
-        }
-
-        & > input {
-          @apply pl-16;
-        }
-      }
-
-      &[data-append] {
-        &:after {
-          @apply content-[attr(data-append)] right-6;
-        }
-
-        & > input {
-          @apply pr-8;
-        }
-      }
-    }
-
-    select {
-      @apply appearance-none bg-no-repeat;
-
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23232830' d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z' /%3E%3C/svg%3E");
-      background-position: center right 1rem;
-      background-size: 1.25rem;
-    }
-
-    .result {
-      @apply relative block w-full h-auto py-8 lg:py-12 px-8 overflow-hidden break-all z-10;
-      @apply bg-gunmetal rounded-2xl border-2 border-solid border-gold;
-      @apply text-white text-center text-xl sm:text-4xl leading-relaxed font-bold;
-
-      &:before,
-      &:after {
-        @apply absolute top-[50%] -translate-y-[50%];
-      }
-
-      &[data-prepend] {
-        &:before {
-          @apply content-[attr(data-prepend)] left-6;
-        }
-
-        & > input {
-          @apply pl-16;
-        }
-      }
-
-      &[data-append] {
-        &:after {
-          @apply content-[attr(data-append)] right-6;
-        }
-
-        & > input {
-          @apply pr-8;
-        }
-      }
-    }
-  }
-
-  button,
-  input[type="button"],
-  input[type="submit"] {
-    @apply w-full px-6 py-3 rounded-2xl z-10;
-    @apply bg-gunmetal text-white text-lg;
-    @apply border-2 border-gunmetal;
-    @apply duration-500 cursor-pointer;
-
-    &:hover,
-    &:focus,
     &[data-active] {
-      @apply !bg-gold border-gunmetal/10;
       @apply text-gunmetal font-bold;
-    }
-  }
-
-  .tabs {
-    @apply relative flex z-10;
-    @apply bg-gunmetal rounded-2xl;
-
-    &:before {
-      @apply content-[''] rounded-2xl z-10;
-      @apply w-[50%] h-full bg-gold;
-      @apply border-2 border-solid border-gunmetal/10;
-      @apply absolute top-0 left-0;
-      @apply duration-500;
-    }
-
-    &[data-active]:before {
-      @apply left-[50%];
-    }
-
-    input[type="button"] {
-      @apply bg-[transparent] text-gray border-none z-20;
-
-      &:hover,
-      &:focus {
-        @apply !bg-[transparent] text-white font-normal;
-      }
-
-      &[data-active] {
-        @apply text-gunmetal font-bold;
-      }
     }
   }
 }
