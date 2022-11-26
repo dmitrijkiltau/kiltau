@@ -1,6 +1,6 @@
 {
   "name": "kiltau",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "kiltau",
   "author": "Dima",
@@ -15,7 +15,6 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@plot-and-scatter/react-animated-number": "^1.1.0",
     "gatsby": "^5.2.0",
     "gatsby-plugin-google-analytics": "^5.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
@@ -23,12 +22,13 @@
     "gatsby-plugin-react-i18next": "^2.0.5",
     "gatsby-plugin-sitemap": "^6.2.0",
     "gatsby-source-filesystem": "^5.2.0",
-    "i18next": "^22.0.6",
     "nanoid": "^4.0.0",
+    "i18next": "^21.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-i18next": "^12.0.0"
+    "react-i18next": "^11.18.6",
+    "@plot-and-scatter/react-animated-number": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
@@ -36,5 +36,8 @@
     "postcss": "^8.4.19",
     "postcss-import": "^15.0.0",
     "tailwindcss": "^3.2.4"
+  },
+  "overrides": {
+    "gatsby": "^5.2.0"
   }
 }
