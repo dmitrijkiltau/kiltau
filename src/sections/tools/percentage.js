@@ -10,7 +10,7 @@ export const Percentage = ({ byN }) => {
   const [n, setN] = useState(byN ?? 'value')
   const [percentage, setPercentage] = useState(25)
   const [value, setValue] = useState(100)
-  const [answer, setAnswer] = useState('a change')
+  const [answer, setAnswer] = useState('change')
   const [operation, setOperation] = useState('+')
   const [result, setResult] = useState(0)
 
@@ -52,10 +52,10 @@ export const Percentage = ({ byN }) => {
 
         if (percentage > value) {
           newResult = 100 - (100 * value) / percentage
-          setAnswer('is a decrease')
+          setAnswer('decrease')
         } else {
           newResult = (100 * value) / percentage - 100
-          setAnswer('is an increase')
+          setAnswer('increase')
         }
 
         return newResult
@@ -134,7 +134,7 @@ export const Percentage = ({ byN }) => {
         formatValue={formatResult}
       />
 
-      {n === 'percentageChange' && <span className="answer animate-fade-in-down-grow">{answer}</span>}
+      {n === 'percentageChange' && <span className="answer animate-fade-in-down-grow">{t(`tools.percentageCalculator.${n}.answer.${answer}`)}</span>}
 
       {n === 'baseValueChange' && <div className="buttons">
         {['+', '−', '×', '÷'].map((item, index) => <input

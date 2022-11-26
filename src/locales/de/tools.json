@@ -13,11 +13,14 @@
 
     "aspectRatioCalculator": {
       "title": "Seitenverhältnis-Rechner",
+      
       "description": "Das Seitenverhältnis eines Bildes ist das Verhältnis seiner Breite zu seiner Höhe und wird durch zwei Zahlen ausgedrückt, die durch einen Doppelpunkt getrennt sind, z. B. 16:9, sechzehn zu neun.",
+      
       "tabs": {
         "ratio": "Verhältnis",
         "pixel": "Pixel"
       },
+
       "preset": {
         "title": "Voreinstellung",
         "custom": "Benutzerdefiniert",
@@ -26,10 +29,12 @@
         "classicFilm": "Klassischer Film 3:2",
         "cinemascope": "Cinemascope 21:9"
       },
+
       "ratio": {
         "width": "Verhältnis Breite",
         "height": "Verhältnis Höhe"
       },
+
       "pixel": {
         "width": "Pixel Breite",
         "height": "Pixel Höhe"
@@ -86,6 +91,7 @@
         "percentage": "Von",
         "value": "Zu",
         "answer": {
+          "change": "ist eine Änderung",
           "increase": "ist eine Zunahme",
           "decrease": "ist eine Abnahme"
         }

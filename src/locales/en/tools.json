@@ -13,11 +13,14 @@
 
     "aspectRatioCalculator": {
       "title": "Aspect Ratio Calculator",
+      
       "description": "The aspect ratio of an image is the ratio of its width to its height, and is expressed with two numbers separated by a colon, such as 16:9, sixteen-to-nine.",
+      
       "tabs": {
         "ratio": "Ratio",
         "pixel": "Pixel"
       },
+
       "preset": {
         "title": "Preset",
         "custom": "Custom",
@@ -26,10 +29,12 @@
         "classicFilm": "Classic Film 3:2",
         "cinemascope": "Cinemascope 21:9"
       },
+
       "ratio": {
         "width": "Ratio Width",
         "height": "Ratio Height"
       },
+
       "pixel": {
         "width": "Pixel Width",
         "height": "Pixel Height"
@@ -86,6 +91,7 @@
         "percentage": "From",
         "value": "To",
         "answer": {
+          "change": "a change",
           "increase": "is an increase",
           "decrease": "is a decrease"
         }
