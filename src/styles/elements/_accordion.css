@@ -16,7 +16,7 @@
       );
 
       .toggle {
-        @apply w-full h-0 absolute p-0;
+        @apply w-full h-0 absolute p-0 z-20;
         @apply bg-gunmetal-light border-none;
         @apply duration-1000;
 
@@ -24,16 +24,44 @@
           @apply absolute;
           @apply text-white;
           @apply duration-1000;
+
+          &:hover,
+          &:focus {
+            @apply text-gold;
+          }
         }
       }
 
-      .title {
-        @apply row-start-1 col-start-1 col-span-10 z-10;
+      .title,
+      .description {
+        @apply grid grid-rows-1 grid-cols-1;
         @apply duration-1000;
       }
 
+      .left,
+      .center {
+        @apply row-start-1 col-start-1;
+        @apply duration-1000;
+      }
+
+      .center {
+        @apply text-center;
+      }
+
+      .title {
+        @apply row-start-1 col-start-1 col-span-12 mr-8 z-10;
+
+        span {
+          @apply text-white;
+        }
+      }
+
       .description {
-        @apply col-span-12 z-10;
+        @apply col-span-12 mr-4 z-10;
+
+        span {
+          @apply text-gray;
+        }
       }
     }
   }
@@ -46,6 +74,15 @@
   }
 
   &:not([data-open]) {
+    @apply cursor-pointer;
+
+    &:hover,
+    &:focus {
+      .header .toggle .icon {
+        @apply text-gold;
+      }
+    }
+
     .card > .container {
       .header {
         .toggle .icon {
@@ -56,12 +93,16 @@
           }
         }
 
+        .left {
+          @apply opacity-0 invisible blur-sm;
+        }
+
         .title {
-          @apply col-span-12 mt-36 text-center;
+          @apply mt-36 mx-5;
         }
 
         .description {
-          @apply max-w-full text-center px-4;
+          @apply mx-2;
         }
       }
 
@@ -72,11 +113,17 @@
   }
 
   &[data-open] {
-    .toggle .icon {
-      @apply top-8 right-0 translate-x-0 -rotate-[135deg];
+    .header {
+      .toggle .icon {
+        @apply top-8 right-0 translate-x-0 -rotate-[135deg];
 
-      &:first-child {
-        @apply invisible opacity-0 w-0 h-0;
+        &:first-child {
+          @apply invisible opacity-0 w-0 h-0;
+        }
+      }
+
+      .center {
+        @apply opacity-0 invisible blur-sm;
       }
     }
   }

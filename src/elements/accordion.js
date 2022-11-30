@@ -6,7 +6,8 @@ export const Accordion = ({ id, title, description, icon, children }) => {
   const [height, setHeight] = useState(undefined)
   const [open, setOpen] = useState(false)
 
-  const handleOpen = () => {
+  const handleOpen = (e) => {
+    if (!e.target.closest('.toggle') && open) return;
     setHeight(contentRef.current.scrollHeight)
     setOpen(!open)
   }
@@ -15,7 +16,7 @@ export const Accordion = ({ id, title, description, icon, children }) => {
     setTimeout(() => setHeight(contentRef.current.scrollHeight), 500)
   }, [])
 
-  return <div id={id} className="accordion" data-open={open ? '' : undefined}>
+  return <div id={id} className="accordion" onClick={handleOpen} data-open={open ? '' : undefined}>
     <Card>
       <div className="header">
         <button className="toggle" onClick={handleOpen}>
@@ -26,8 +27,15 @@ export const Accordion = ({ id, title, description, icon, children }) => {
           </svg>
         </button>
 
-        <h3 className="title">{title}</h3>
-        <p className="description">{description}</p>
+        <div className="title">
+          <h3 className="left">{title}</h3>
+          <h3 className="center">{title}</h3>
+        </div>
+
+        <div className="description">
+          <p className="left">{description}</p>
+          <p className="center">{description}</p>
+        </div>
       </div>
 
       <div className="content" ref={contentRef} style={{ '--content-height': `${height}px` }}>
