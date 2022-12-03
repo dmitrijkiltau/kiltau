@@ -13,7 +13,8 @@ export const Accordion = ({ id, title, description, icon, children }) => {
   }
 
   useEffect(() => {
-    setTimeout(() => setHeight(contentRef.current.scrollHeight), 500)
+    setTimeout(() => setHeight(contentRef.current.scrollHeight), 600)
+    setTimeout(() => contentRef.current.style.setProperty('transition-duration', '2s'), 700)
   }, [])
 
   return <div id={id} className="accordion" onClick={handleOpen} data-open={open ? '' : undefined}>
