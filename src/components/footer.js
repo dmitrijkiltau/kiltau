@@ -10,6 +10,9 @@ export const Footer = () => {
   const privateSocial = []
   const workSocial = []
 
+  const date = new Date();
+  const year = date.getFullYear();
+
   Object.values(social).forEach((item, index) => (index < 4) ? privateSocial.push(item) : workSocial.push(item))
 
   return <footer>
@@ -63,7 +66,7 @@ export const Footer = () => {
 
     <div id="footer-bar">
       <div className="container">
-        <small>&copy; {(new Date()).getFullYear()} <Link to="/">Dmitrij Kiltau</Link>.</small>
+        <small>&copy; {year} <Link to="/">Dmitrij Kiltau</Link>.</small>
 
         <nav id="footer-privacy">
           {footerMenu.map((item, index) => <Link key={`footer-menu-${index}`} to={`/${item}`}>{t(`footer.legal.${item}`)}</Link>)}
