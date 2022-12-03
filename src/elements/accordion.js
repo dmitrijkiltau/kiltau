@@ -21,7 +21,7 @@ export const Accordion = ({ id, title, description, icon, children }) => {
     setTimeout(() => contentRef.current.style.setProperty('transition-duration', '2s'), 200)
   }, [])
 
-  return <div id={id} className="accordion" onClick={handleOpen} data-open={open ? '' : undefined}>
+  return <div id={id} className="accordion" onClick={handleOpen} data-open={open ? '' : undefined} role="presentation">
     <Card>
       <div className="header">
         <button className="toggle" onClick={handleOpen}>
