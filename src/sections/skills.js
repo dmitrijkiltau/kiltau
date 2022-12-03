@@ -17,7 +17,7 @@ export const Skills = () => {
       let breaks = [3, 8, 14];
 
       if (window.innerWidth < 768) breaks = [2, 6, 10];
-      if (window.innerWidth < 429) breaks = [];
+      if (window.innerWidth < 454) breaks = [];
 
       return setLineBreaks(breaks)
     }
