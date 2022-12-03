@@ -24,7 +24,7 @@ export const Accordion = ({ id, title, description, icon, children }) => {
   return <div id={id} className="accordion" onClick={handleOpen} data-open={open ? '' : undefined} role="presentation">
     <Card>
       <div className="header">
-        <button className="toggle" onClick={handleOpen}>
+        <button className="toggle" onClick={handleOpen} aria-label={title}>
           {icon}
 
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 448 512" className="icon">
