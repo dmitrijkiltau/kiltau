@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react"
 import { Card } from "./card"
 
 export const Accordion = ({ id, title, description, icon, children }) => {
@@ -12,9 +12,13 @@ export const Accordion = ({ id, title, description, icon, children }) => {
     setOpen(!open)
   }
 
+  
+  useLayoutEffect(() => {
+    setTimeout(() => setHeight(contentRef.current.scrollHeight), 100)
+  }, [])
+
   useEffect(() => {
-    setTimeout(() => setHeight(contentRef.current.scrollHeight), 600)
-    setTimeout(() => contentRef.current.style.setProperty('transition-duration', '2s'), 700)
+    setTimeout(() => contentRef.current.style.setProperty('transition-duration', '2s'), 200)
   }, [])
 
   return <div id={id} className="accordion" onClick={handleOpen} data-open={open ? '' : undefined}>
@@ -39,7 +43,7 @@ export const Accordion = ({ id, title, description, icon, children }) => {
         </div>
       </div>
 
-      <div className="content" ref={contentRef} style={{ '--content-height': `${height}px` }}>
+      <div className="content" ref={contentRef} onLoad={e => console.log(e)} style={{ '--content-height': `${height}px` }}>
         {children}
       </div>
     </Card>
