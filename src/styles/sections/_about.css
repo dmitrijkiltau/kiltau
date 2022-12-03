@@ -1,5 +1,5 @@
 #hero.about {
-  @apply h-[60vh] md:h-screen;
+  @apply h-[60vh] md:h-screen overflow-hidden;
   @apply flex items-center justify-center;
 
   & > .container {
@@ -22,7 +22,6 @@
       &:first-child {
         @apply justify-center sm:justify-end;
         @apply animate-fade-in-right;
-
       }
 
       &:nth-child(2) {
