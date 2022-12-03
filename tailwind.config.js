@@ -58,6 +58,10 @@ module.exports = {
           '50%': { opacity: 0 },
           '100%': { opacity: 1, visibility: 'visible', transform: 'translateY(0)', marginTop: '0' },
         },
+        fadeOut: {
+          from: { opacity: 1, visibility: 'visible' },
+          to: { opacity: 0, visibility: 'hidden' },
+        },
       },
       animation: {
         'zoom-in': '2s ease-out zoomIn',
@@ -65,7 +69,8 @@ module.exports = {
         'fade-in-left': '2500ms ease-out fadeInLeft',
         'fade-in-right': '2500ms ease-out fadeInRight',
         'fade-in-down': '1s ease-in-out fadeInDown',
-        'fade-in-down-grow': '500ms linear fadeInDownGrow',
+        'fade-in': '2s ease-in fadeIn',
+        'fade-out': '1s ease-in fadeOut',
       }
     },
   },

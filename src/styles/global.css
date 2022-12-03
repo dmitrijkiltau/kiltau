@@ -4,6 +4,7 @@
 @import "/elements/_section";
 @import "/elements/_card";
 @import "/elements/_accordion";
+@import "/components/_preloader";
 @import "/components/_header";
 @import "/components/_main";
 @import "/components/_footer";

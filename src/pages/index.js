@@ -8,6 +8,7 @@ import { Skills } from '../sections/skills'
 
 const IndexPage = () => {
   return <Layout title="Homepage">
+    <div id="preloader"></div>
     <About />
     <Tools />
     <Skills />

@@ -1,0 +1,6 @@
+#preloader {
+  @apply fixed left-0 top-0 right-0 bottom-0;
+  @apply bg-gunmetal z-[1000] pointer-events-none;
+  @apply animate-fade-out;
+  animation-fill-mode: forwards;
+}
