@@ -7,13 +7,8 @@ export const Footer = () => {
   const { language, languages, originalPath } = useI18next()
   const { mainMenu, footerMenu, social } = useSiteMetadata()
 
-  const privateSocial = []
-  const workSocial = []
-
   const date = new Date();
   const year = date.getFullYear();
-
-  Object.values(social).forEach((item, index) => (index < 4) ? privateSocial.push(item) : workSocial.push(item))
 
   return <footer>
     <div className="container">
@@ -36,15 +31,9 @@ export const Footer = () => {
       <div id="footer-social">
         <h3>{t('footer.socialMedia.title')}</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 items-start">
-          <nav>
-            {privateSocial.map((item, index) => <a key={`social-${index}`} href={item.url + item.name} target="_blank" rel="noreferrer">{item.title}</a>)}
-          </nav>
-
-          <nav>
-            {workSocial.map((item, index) => <a key={`social-${index}`} href={item.url + item.name} target="_blank" rel="noreferrer">{item.title}</a>)}
-          </nav>
-        </div>
+        <nav className="grid grid-cols-1 md:grid-cols-2 items-start">
+          {Object.values(social).map((item, index) => <a key={`social-${index}`} href={item.url + item.name} target="_blank" rel="noreferrer">{item.title}</a>)}
+        </nav>
       </div>
 
       <div id="footer-apps">

@@ -17,6 +17,11 @@ export const useSiteMetadata = () => {
               name
               url
             }
+            mastodon {
+              title
+              name
+              url
+            }
             instagram {
               title
               name

@@ -13,6 +13,11 @@ module.exports = {
         name: 'einfachdima',
         url: 'https://twitter.com/',
       },
+      mastodon: {
+        title: 'Mastodon',
+        name: '@dima@det.social',
+        url: 'https://det.social/@dima',
+      },
       instagram: {
         title: 'Instagram',
         name: 'einfach.dima',
